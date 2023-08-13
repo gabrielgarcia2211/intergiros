@@ -1,0 +1,50 @@
+body {
+    background-color: darkgray;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+#calculadora {
+    padding-top: 120px !important;
+}
+
+#moneda {
+    padding: 24px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+#envia, #recibe, #formula, #entidad {
+    padding: 16px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+#valores {
+    text-align: right;
+}
+
+.col-6>p {
+    margin: 0px;
+}
+
+#modal {
+    text-align: center;
+}
+
+#modal>button>p {
+    margin: 0px;
+}
+
+#somos {
+    text-align: center;
+    padding: 26px;
+    background-color: white;
+    border-radius: 5px;
+}

@@ -1,0 +1,41 @@
+.py-5>h3 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+#campos-sesion {
+    padding-left: 350px;
+    padding-right: 350px;
+}
+
+#campos-sesion>.btn {
+    width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+    #campos-sesion {
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+}
+
+@media only screen and (max-width: 1090px) {
+    #campos-sesion {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    #campos-sesion {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #campos-sesion {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
