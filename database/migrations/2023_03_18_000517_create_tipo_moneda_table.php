@@ -17,6 +17,7 @@ class CreateTipoMonedaTable extends Migration
             $table->id();
             $table->string('tipo');
             $table->string('descripcion');
+            $table->string('codigo');
             $table->timestamps();
         });
     }

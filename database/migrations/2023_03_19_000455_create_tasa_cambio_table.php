@@ -15,10 +15,10 @@ class CreateTasaCambioTable extends Migration
     {
         Schema::create('tasa_cambio', function (Blueprint $table) {
             $table->id();
-            $table->string('descripcion');
             $table->string('valor');
-            $table->bigInteger('id_formulario')->unsigned();
-            $table->foreign('id_formulario')->references('id')->on('tipo_formulario');
+            $table->string('key')->nullable();
+            $table->bigInteger('id_tipo_formulario')->unsigned();
+            $table->foreign('id_tipo_formulario')->references('id')->on('tipo_formulario');
             $table->timestamps();
         });
     }

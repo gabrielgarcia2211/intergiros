@@ -25,10 +25,10 @@
                             </li>
                         </ul>
                     </div>
-
                     <div class="tab-content">
+                        <!--PANEL 1-->
                         <div class="tab-pane" id="pedidos">
-                            <form action="" method="POST" id="pay-paypal-form">
+                            <form action="" method="POST" id="paymentsForm1">
                                 @csrf
                                 <div>
                                     <div class="col-sm-12">
@@ -52,95 +52,36 @@
                                     </h4>
                                     <div class="row">
                                         <h4 class="sub-descripction">
-                                            DATOS DEL BENEFICIARIO:
+                                            DATOS DEL BENEFICIARIO: <div id="add-beneficiario"></div>
                                         </h4>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="nombre_b_form1"
-                                                    name="nombre_b_form1" placeholder="NOMBRE DEL BENEFICIARIO" />
+                                                <div id="nombre_b_form1"></div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <input type="number" class="form-control" id="cedula_b_form1"
-                                                    name="cedula_b_form1" placeholder="CEDULA" />
+                                                <div id="cedula_b_form1"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <select class="form-control" id="banco_b_form1" name="banco_b_form1">
-                                                    <option disabled="" selected="">
-                                                        - SELECCIONAR BANCO -
-                                                    </option>
-                                                    <option>BANESCO</option>
-                                                    <option>MERCANTIL</option>
-                                                    <option>BBVA PROVINCIAL</option>
-                                                    <option>BANCO DE VENEZUELA</option>
-                                                    <option>BANCO BICENTENARIO</option>
-                                                    <option>BANPLUS</option>
-                                                    <option>100% BANCO</option>
-                                                    <option>BANCO NACIONAL DE CREDITO</option>
-                                                    <option>BANCARIBE</option>
-                                                    <option>BANCO EXTERIOR</option>
-                                                    <option>BANCO DEL TESORO</option>
-                                                    <option>OTRO</option>
-                                                </select>
+                                                <div id="banco_b_form1"></div>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="nro_cuenta_form1"
-                                                    name="nro_cuenta_form1" placeholder="NRO DE CUENTA" />
+                                                <div id="nro_cuenta_form1"></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="container" style="width: 100%;">
-                                        <div class="form-check">
-                                            <input class="form-check-input radio-p" name="radioNoLabel" type="radio"
-                                                value="V" id="check_v" checked />
-                                            <label class="form-check-label" for="check_v">
-                                                V
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input radio-p" name="radioNoLabel" type="radio"
-                                                value="E" id="check_e" />
-                                            <label class="form-check-label" for="check_e">
-                                                E
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input radio-p" name="radioNoLabel" type="radio"
-                                                value="J" id="check_j" />
-                                            <label class="form-check-label" for="check_j">
-                                                J
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input radio-p" name="radioNoLabel" type="radio"
-                                                value="P" id="check_p" />
-                                            <label class="form-check-label" for="check_p">
-                                                P
-                                            </label>
-                                        </div>
+                                    <div class="container" style="width: 100%; margin-top:20px">
+                                        <div id="radio_label_form1"></div>
                                     </div>
-                                    <div class="container" style="width: 100%;">
-                                        <div class="form-check">
-                                            <input class="form-check-input radio-p" name="radioTypeCu" type="radio"
-                                                value="ahorros" id="check_ahorros" checked />
-                                            <label class="form-check-label" for="check_ahorros">
-                                                AHORROS
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input radio-p" name="radioTypeCu" type="radio"
-                                                value="corriente" id="check_corriente" />
-                                            <label class="form-check-label" for="check_corriente">
-                                                CORRIENTE
-                                            </label>
-                                        </div>
+                                    <div class="container" style="width: 100%; margin-top:20px">
+                                        <div id="radio_type_form1"></div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-10">
@@ -155,86 +96,41 @@
                                                 realizaremos su transferencia por medio de este
                                                 método.
                                             </p>
-                                            <div class="form-check" style="margin-left: 10px">
-                                                <input class="form-check-input radio-p group-bolivares"
-                                                    name="radioTypeH" type="radio" value="check_h_si"
-                                                    id="check_h_si" />
-                                                <label class="form-check-label" for="check_h_si">
-                                                    SI
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input radio-p group-bolivares"
-                                                    name="radioTypeH" type="radio" value="check_h_no"
-                                                    id="check_h_no" />
-                                                <label class="form-check-label" for="check_h_no">
-                                                    NO
-                                                </label>
-                                            </div>
+                                            <div id="radio_type_movil"></div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-6 group-bolivares-view">
-
+                                        <div class="container col-sm-6" style="margin-top: 20px">
+                                            <div id="movil_b_form1"></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <h4 class="sub-descripction">DATOS DEL DEPOSITANTE:</h4>
                                         <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="nombre_d_form1"
-                                                    name="nombre_d_form1" placeholder="TU NOMBRE" />
-                                            </div>
+                                            <div id="nombre_d_form1"></div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <input type="number" class="form-control" id="telefono_d_form1"
-                                                    name="telefono_d_form1" placeholder="TU TELEFONO" />
-                                            </div>
+                                            <div id="telefono_d_form1"></div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="correo_d_form1"
-                                                    name="correo_d_form1" placeholder="TU CORREO ELECTRONICO" />
-                                            </div>
+                                            <div id="correo_d_form1"></div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <select class="form-control" id="pais_d_form1" name="pais_d_form1">
-                                                    <option disabled="" selected="">
-                                                        - PAIS DONDE RESIDE -
-                                                    </option>
-                                                    <option>VENEZUELA</option>
-                                                    <option>COLOMBIA</option>
-                                                    <option>ECUADOR</option>
-                                                    <option>PERÚ</option>
-                                                    <option>PANAMÁ</option>
-                                                    <option>ARGENTINA</option>
-                                                    <option>CHILE</option>
-                                                    <option>BOLIVIA</option>
-                                                    <option>BRASIL</option>
-                                                    <option>URUGUAY</option>
-                                                    <option>PARAGUAY</option>
-                                                    <option>MEXICO</option>
-                                                    <option>USA</option>
-                                                    <option>ESPAÑA</option>
-                                                    <option>OTRO</option>
-                                                </select>
+                                                <div id="pais_d_form1"></div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <input type="number" class="form-control"
-                                                    id="identificacion_d_form1" name="identificacion_d_form1"
-                                                    placeholder="TU IDENTIFICACION" />
+                                                <div id="identificacion_d_form1"></div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
+                                            <div id="pais_d_form1"></div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="instagram_d_form1"
-                                                    name="instagram_d_form1" placeholder="INSTAGRAM (opcional)" />
+                                                <div id="instagram_d_form1"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -242,12 +138,12 @@
                                         <h4 class="sub-descripction">DATOS DE ENVIÓ:</h4>
                                         <div class="col-sm-4 float-left">
                                             <div class="row">
-                                                <a id="pay-paypal" onclick="cap_type_pay(id)"><img class="bg-pay"
+                                                <a id="PayPal" onclick="cap_type_pay(id)"><img class="bg-pay"
                                                         src="{{ asset('template/images/paypal_b.png') }}"
                                                         align="center" /></a>
                                             </div>
                                             <div class="row">
-                                                <a id="pay-skrill" onclick="cap_type_pay(id)"><img class="bg-pay"
+                                                <a id="Skrill" onclick="cap_type_pay(id)"><img class="bg-pay"
                                                         src="{{ asset('template/images/skrill_b.png') }}"
                                                         align="center" /></a>
                                             </div>
@@ -262,25 +158,20 @@
                                                         align="center" /></a>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 float-right">
+                                        <div class="col-sm-6 float-right" id="payments-view">
                                             <div class="form-group">
                                                 <h4 class="sub-descripction-pay">MONTO A ENVIAR:</h4>
-                                                <input type="text" class="form-control" id="monto_enviar_d_form1"
-                                                    name="monto_enviar_d_form1" placeholder="$ MONTO"
-                                                    onkeyup="dev_formato_moneda(id, value)" />
-                                                <div id="alerta_monto" class="alert alert-danger"
-                                                    style="display: none">El valor minimo es 5*</div>
+                                                <div id="monto_enviar_d_form1"></div>
                                             </div>
                                             <h4 class="sub-descripction-pay">MONTO A PAGAR:</h4>
                                             <div class="input-group">
                                                 <span class="input-group-addon input-cant">$</span>
-                                                <input type="text" id="monto_pagar_d_form1" class="form-control">
+                                                <div id="monto_pagar_d_form1"></div>
                                             </div>
                                             <h4 class="sub-descripction-pay">MONTO A RECIBIR:</h4>
                                             <div class="input-group">
                                                 <span class="input-group-addon input-cant">Bs</span>
-                                                <input type="text" id="monto_recibir_d_form1"
-                                                    class="form-control">
+                                                <div id="monto_recibir_d_form1"></div>
                                             </div>
                                             <div class="container-type-pay-info" style="margin-top: 20px">
                                             </div>
@@ -295,6 +186,7 @@
                                 </div>
                             </form>
                         </div>
+                        <!--PANEL 2-->
                         <div class="tab-pane" id="recarga">
                             <div class="row">
                                 <div class="col-sm-12">
@@ -412,6 +304,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!--PANEL 3-->
                         <div class="tab-pane" id="recarga_skirll">
                             <div class="row">
                                 <div class="col-sm-12">
@@ -528,6 +421,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!--PANEL 4-->
                         <div class="tab-pane" id="recarga_bolivares">
                             <div class="row">
                                 <div class="col-sm-12">

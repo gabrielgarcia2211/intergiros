@@ -2,21 +2,21 @@
 
 @section('content')
     <!-- =========================
-            PRE LOADER
-        ============================== -->
+                PRE LOADER
+            ============================== -->
     <div class="preloader">
         <div class="sk-rotating-plane"></div>
     </div>
 
     <!-- =========================
-            NAVIGATION LINKS
-        ============================== -->
+                NAVIGATION LINKS
+            ============================== -->
     @include('dash.nav')
 
     <!-- =========================
-            INTRO SECTION
-        ============================== -->
-    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="2000" id="bs-carousel">
+                INTRO SECTION
+            ============================== -->
+    {{-- <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="2000" id="bs-carousel">
         <!-- Overlay -->
         <div class="overlay"></div>
 
@@ -30,7 +30,7 @@
         </ol>
 
         <!-- Wrapper for slides -->
-        {{-- <div class="carousel-inner">
+        <div class="carousel-inner">
             <div class="item slides active">
                 <div class="slide-1"></div>
                 <div class="hero">
@@ -61,30 +61,15 @@
                     <hgroup></hgroup>
                 </div>
             </div>
-        </div> --}}
-    </div>
+        </div> 
+    </div> --}}
 
     <!-- =========================
-                OVERVIEW SECTION
-        ============================== -->
-    <section id="overview" class="parallax-section">
+                    OVERVIEW SECTION
+            ============================== -->
+    <section id="overview" class="parallax-section mt-5">
         <div class="container">
             <center>
-                <div class="statusInfo">
-                    <div id="status-button" class="row" style="width: 40%">
-                        <div class="col-sm-6" style="margin-top: 5px">
-                            <button class="btn btn-success">
-                                <a href="">Verifica Tu Cuenta de PayPal</a>
-                            </button>
-                        </div>
-                        <div class="col-sm-6" style="margin-top: 5px">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#status_formus">
-                                Revisar Status
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="bancoInfo">
                     Hoy transferimos a todos los bancos de Venezuela desde:
                     <br />
@@ -164,13 +149,14 @@
     </section>
 
     <!-- =========================
-                DETAIL SECTION
-            ============================== -->
+                    DETAIL SECTION
+                ============================== -->
     @include('dash.form')
+    @include('dash.beneficiario')
 
     <!-- =========================
-                    CONTACT SECTION
-            ============================== -->
+                        CONTACT SECTION
+                ============================== -->
     <section id="contact" class="parallax-section">
         <div class="container" data-wow-delay="0.6s">
             <p class="elegirIntergiros">¿POR QUÉ ELEGIR {site}?</p>
@@ -227,10 +213,14 @@
     </section>
 
     <!-- =========================
-                    FOOTER SECTION
-            ============================== -->
+                        FOOTER SECTION
+                ============================== -->
     @include('dash.footer')
 
     <!-- Back top -->
     <a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+@endsection
+@section('script')
+    <script src="{{ asset('js/form1/index.js') }}"></script>
+    <script src="{{ asset('js/form1/payments.js') }}"></script>
 @endsection

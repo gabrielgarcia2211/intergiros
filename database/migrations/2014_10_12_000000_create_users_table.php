@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('telefono', 50);
             $table->string('instagram', 200)->nullable();
             $table->string('pais', 120)->nullable();
-            $table->bigInteger('rol_id')->unsigned();
-            $table->foreign('rol_id')->references('id')->on('rol');
             $table->rememberToken();
             $table->timestamps();
         });

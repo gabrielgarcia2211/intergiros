@@ -1,5 +1,5 @@
 body {
-    background-color: darkgray;
+    background-color: rgb(154, 180, 236);
 }
 
 .navbar {
@@ -21,16 +21,20 @@ h1 {
     border-radius: 5px;
 }
 
-#envia, #recibe, #formula, #entidad {
+#envia,
+#recibe,
+#formula,
+#entidad {
     padding: 16px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 12px;
 }
 
 #valores {
     text-align: right;
 }
 
-.col-6>p {
+.col-6 > p {
     margin: 0px;
 }
 
@@ -38,13 +42,113 @@ h1 {
     text-align: center;
 }
 
-#modal>button>p {
+#modal > button > p {
     margin: 0px;
 }
 
 #somos {
+    background: linear-gradient(90deg, #3b5ae2 0%, #0f4061 100%);
+    color: #fff;
     text-align: center;
     padding: 26px;
-    background-color: white;
-    border-radius: 5px;
+    position: relative;
+    border-radius: 10px;
+}
+
+#somos::before,
+#somos::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#somos::before {
+    background-repeat: repeat;
+    height: 10px;
+    background-size: 20px 20px;
+    background-image: radial-gradient(circle at 10px -5px, transparent 12px, #fff 13px);
+}
+
+#somos::after {
+    background-repeat: repeat;
+    height: 15px;
+    background-size: 40px 20px;
+    background-image: radial-gradient(circle at 0px 15px, #fff 12px, transparent 13px);
+}
+
+/*Inicio de sesion*/
+
+.py-5 > h3 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+#camposSesion {
+    padding-left: 350px;
+    padding-right: 350px;
+}
+
+#camposSesion > .btn {
+    width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+    #camposSesion {
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+}
+
+@media only screen and (max-width: 1090px) {
+    #camposSesion {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    #camposSesion {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #camposSesion {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+/*Registro*/
+
+.col-md-7 > h3 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+#camposRegistro {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+    #camposRegistro {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+#camposRegistro > p {
+    margin: 0px;
+}
+
+#camposRegistro > #registro {
+    width: 100%;
+}
+
+#carouselExampleSlidesOnly {
+    padding-top: 50px;
 }

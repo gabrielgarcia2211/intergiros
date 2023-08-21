@@ -1,0 +1,50 @@
+.input-text {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.375rem 0.75rem !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: #212529 !important;
+    background-color: #fff !important;
+    background-clip: padding-box !important;
+    border: 1px solid #ced4da !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    border-radius: 0.25rem !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+.boton-success {
+    background-color: #14a44d !important;
+    color: white !important;
+    padding: 2px !important;
+}
+
+.boton-primary {
+    background-color: #3b71ca !important;
+    color: white !important;
+    padding: 2px !important;
+}
+
+.icon-custom-style {
+    background-color: #2595c2;
+}
+
+.icon-custom-style,
+.dx-icon {
+    color: #ffffff !important;
+}
+
+/*styles form*/
+
+.buttons-container {
+    display: inline-flex;
+    float: right;
+    grid-gap: 15px;
+}
+
+.buttons-container > div {
+    width: 120px !important;
+}
