@@ -2,7 +2,9 @@
 
 namespace App\Models\Formularios;
 
+use Carbon\Carbon;
 use App\Models\User;
+use App\Enums\EstadoType;
 use App\Models\Tipos\Estado;
 use App\Models\Tipos\TipoMoneda;
 use App\Models\Tipos\TipoEntidad;
@@ -62,5 +64,26 @@ class Formulario extends Model
     public function estado()
     {
         return $this->belongsTo(Estado::class, 'id_estado');
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return Carbon::parse($value)->format('d/m/Y H:i:s');
+    }
+
+    public function getIdEstadoAttribute($value)
+    {
+        switch ($value) {
+            case 1:
+                return EstadoType::PENDIENTE;
+            case 2:
+                return EstadoType::EN_PROCESO;
+            case 3:
+                return EstadoType::ENTREGADO;
+            case 4:
+                return EstadoType::CANCELADO;
+            default:
+                return 'Desconocido';
+        }
     }
 }

@@ -74,13 +74,9 @@
                     <p href="#" class="smoothScroll"
                         style="cursor: pointer; color: #67c6dc; padding: 15px; margin: 0px;" id="contacto">CONTACTO</p>
                 </li>
-            </ul>
-            <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="{{ route('logout') }}" class="nav-link"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
+                <li>
+                    <p class="smoothScroll" style="cursor: pointer; color: #e66858; padding: 15px; margin: 0px;"
+                        id="logout">CERRAR SESION <i class="fa-solid fa-power-off"></i></p>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
@@ -95,18 +91,19 @@
     var inicio = document.getElementById("inicio");
     var otros = document.getElementById("otros_servicios");
     var contacto = document.getElementById("contacto");
+    var logout = document.getElementById("logout");
 
     // Agregar un controlador de eventos de clic al elemento p
     inicio.addEventListener("click", function() {
-        // Redirigir a la página de inicio
         window.location.href = "{{ route('site.welcome') }}";
     });
     otros.addEventListener("click", function() {
-        // Redirigir a la página de inicio
         window.location.href = "{{ route('site.otrosServicios') }}";
     });
     contacto.addEventListener("click", function() {
-        // Redirigir a la página de inicio
         window.location.href = "{{ route('site.contacto') }}";
+    });
+    logout.addEventListener('click', function() {
+        document.getElementById('logout-form').submit();
     });
 </script>

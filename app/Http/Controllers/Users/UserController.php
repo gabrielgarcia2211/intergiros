@@ -10,7 +10,7 @@ use App\Repositories\Users\UserRepository;
 use App\Http\Requests\Users\StoreUserRequest;
 use App\Http\Requests\Users\UpdateUserRequest;
 use App\Http\Controllers\ResponseController as Response;
-
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -18,6 +18,11 @@ class UserController extends Controller
     public function index()
     {
         return view('');
+    }
+
+    public function getUser()
+    {
+        return User::query()->with(User::RELATION_SHIPS)->where('id', Auth::user()->id)->distinct()->get();
     }
 
     public function getUsers()

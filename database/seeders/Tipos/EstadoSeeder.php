@@ -2,18 +2,19 @@
 
 namespace Database\Seeders\Tipos;
 
+use App\Enums\EstadoType;
 use App\Models\Tipos\Estado;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class EstadoSeeder extends Seeder
 {
     public function run()
     {
         $estados = [
-            ['descripcion' => 'Activo'],
-            ['descripcion' => 'Pendiente'],
-            ['descripcion' => 'Cerrado'],
+            ['descripcion' => EstadoType::PENDIENTE],
+            ['descripcion' => EstadoType::EN_PROCESO],
+            ['descripcion' => EstadoType::ENTREGADO],
+            ['descripcion' => EstadoType::CANCELADO],
         ];
 
         foreach ($estados as $estado) {

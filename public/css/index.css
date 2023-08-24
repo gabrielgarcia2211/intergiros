@@ -28,13 +28,63 @@
     padding: 2px !important;
 }
 
-.icon-custom-style {
-    background-color: #2595c2;
+.boton-status {
+    background-color: #f35454 !important;
+    color: white !important;
+    padding: 2px !important;
+    width: 30% !important;
 }
 
-.icon-custom-style,
+.boton-status-icons {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    cursor: pointer !important;
+}
+
+.boton-status-icons .dx-icon {
+    color: white !important; 
+    font-size: 16px !important; 
+}
+
+.icon-custom-add {
+    background-color: #55c5f1;
+}
+
+.icon-custom-add,
 .dx-icon {
     color: #ffffff !important;
+}
+
+.icon-custom-list {
+    background-color: #1fc749;
+}
+
+.icon-custom-list,
+.dx-icon {
+    color: #ffffff !important;
+}
+
+.icon-custom-revert {
+    background-color: #f1ef55;
+}
+
+.icon-custom-revert,
+.dx-icon {
+    color: #000000 !important;
+}
+
+.icon-custom-select {
+    background-color: #55c5f1;
+}
+
+.icon-custom-select,
+.dx-icon {
+    color: #000000 !important;
 }
 
 /*styles form*/

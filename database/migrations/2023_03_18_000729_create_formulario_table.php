@@ -25,9 +25,9 @@ class CreateFormularioTable extends Migration
             $table->string('monto_enviar');
             $table->string('imagen_comprobante', 120)->nullable();
             $table->string('terminos_comprobante', 120);
-            $table->string('email_comprobante', 120);
+            $table->string('email_comprobante', 120)->nullable();
             $table->string('archivo')->nullable();
-            $table->string('pais');
+            $table->string('pais')->nullable();
             $table->bigInteger('id_moneda')->unsigned();
             $table->bigInteger('id_entidad')->unsigned();
             $table->bigInteger('id_formulario')->unsigned();

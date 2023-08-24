@@ -4,6 +4,9 @@ var radioData = [
 ];
 
 var isTerminosForm1 = false;
+var initFields = false;
+var datosUsuario = JSON.parse(localStorage.getItem("usuario"));
+var datosBeneficiario = JSON.parse(localStorage.getItem("beneficiario"));
 
 $("#payments-view").hide();
 
@@ -14,11 +17,62 @@ $(document).ready(function () {
         // DATOS DEL BENEFICIARIO
         setButton("#add-beneficiario", {
             icon: "plus",
+            hint: "Añadir",
             elementAttr: {
-                class: "icon-custom-style",
+                class: "icon-custom-add",
             },
             onClick() {
                 viewBeneficiario();
+            },
+        });
+
+        setButton("#list-beneficiario", {
+            icon: "bulletlist",
+            hint: "Listar",
+            elementAttr: {
+                class: "icon-custom-list",
+            },
+            onClick() {
+                listBeneficiario();
+            },
+        });
+
+        setButton("#revert-beneficiario", {
+            icon: "revert",
+            hint: "Limpiar",
+            elementAttr: {
+                class: "icon-custom-revert",
+            },
+            onClick() {
+                localStorage.removeItem("beneficiario");
+                setTextsBeneficiario(null, false);
+            },
+        });
+
+        // DATOS DEL USUARIO
+        setButton("#check-cliente", {
+            icon: datosUsuario ? "selectall" : "unselectall",
+            hint: "Limpiar",
+            elementAttr: {
+                class: "icon-custom-select",
+            },
+            async onClick() {
+                var options = $("#check-cliente").dxButton("instance");
+                var currentIcon = options.option("icon");
+                var newIcon;
+
+                if (currentIcon === "unselectall") {
+                    newIcon = "selectall";
+                    var data = await getUser();
+                    setTextsUsuario(data[0], true);
+                } else {
+                    newIcon = "unselectall";
+                    setTextsUsuario(null, false);
+                }
+
+                options.option({
+                    icon: newIcon,
+                });
             },
         });
 
@@ -27,6 +81,8 @@ $(document).ready(function () {
             {
                 name: "nombre_b_form1",
                 placeholder: "NOMBRE DEL BENEFICIARIO",
+                value: datosBeneficiario ? datosBeneficiario.nombre : null,
+                readOnly: datosBeneficiario ? true : false,
             },
             [
                 {
@@ -42,6 +98,8 @@ $(document).ready(function () {
                 name: "cedula_b_form1",
                 placeholder: "CEDULA",
                 mode: "number",
+                value: datosBeneficiario ? datosBeneficiario.cedula : null,
+                readOnly: datosBeneficiario ? true : false,
             },
             [
                 {
@@ -86,6 +144,8 @@ $(document).ready(function () {
                 name: "nro_cuenta_form1",
                 placeholder: "NRO DE CUENTA",
                 mode: "number",
+                value: datosBeneficiario ? datosBeneficiario.cuenta : null,
+                readOnly: datosBeneficiario ? true : false,
             },
             [
                 {
@@ -99,10 +159,10 @@ $(document).ready(function () {
             "#radio_label_form1",
             {
                 items: [
-                    { text: "V", value: "V" },
-                    { text: "E", value: "E" },
-                    { text: "J", value: "J" },
-                    { text: "P", value: "P" },
+                    { text: "V", value: "VENEZOLANO" },
+                    { text: "E", value: "ENTIDAD" },
+                    { text: "J", value: "JURIDICA" },
+                    { text: "P", value: "PASAPORTE" },
                 ],
                 valueExpr: "value",
                 layout: "horizontal",
@@ -260,144 +320,85 @@ $(document).ready(function () {
             placeholder: "INSTAGRAM (opcional)",
         });
     }
-
-    const popupBeneficiario = setPopup("#popupBeneficiario", {
-        width: 350,
-        height: "auto",
-        position: {
-            offset: { x: 0, y: -100 },
-        },
-        visible: false,
-        title: "Gestion de Beneficiarios",
-        hideOnOutsideClick: true,
-        showCloseButton: true,
-    });
-
-    function viewBeneficiario() {
-        popupBeneficiario.show();
-
-        var formBeneficiario = $("#formBeneficiario")
-            .dxForm({
-                formData: {},
-                colCount: 1,
-                labelLocation: "top",
-                items: [
-                    {
-                        dataField: "nombre",
-                        label: { text: "Nombre beneficiario" },
-                        editorOptions: {
-                            value: "",
-                            onValueChanged: function (e) {
-                                formBeneficiario.option(
-                                    "formData.nombreBeneficiario",
-                                    e.value
-                                );
-                            },
-                        },
-                        validationRules: [
-                            {
-                                type: "required",
-                                message: "El campo es requerido",
-                            },
-                        ],
-                    },
-                    {
-                        dataField: "cedula",
-                        label: { text: "Cedula" },
-                        editorOptions: {
-                            value: "",
-                            mode: "number",
-                            onValueChanged: function (e) {
-                                formBeneficiario.option(
-                                    "formData.cedulaBeneficiario",
-                                    e.value
-                                );
-                            },
-                        },
-                        validationRules: [
-                            {
-                                type: "required",
-                                message: "El campo es requerido",
-                            },
-                        ],
-                    },
-                    {
-                        dataField: "cuenta",
-                        label: { text: "Nro. cuenta" },
-                        editorOptions: {
-                            value: "",
-                            mode: "number",
-                            onValueChanged: function (e) {
-                                formBeneficiario.option(
-                                    "formData.cuentaBeneficiario",
-                                    e.value
-                                );
-                            },
-                        },
-                        validationRules: [
-                            {
-                                type: "required",
-                                message: "El campo es requerido",
-                            },
-                        ],
-                    },
-                    {
-                        itemType: "button",
-                        horizontalAlignment: "left",
-                        buttonOptions: {
-                            id: "button_save",
-                            width: "100%",
-                            text: "Guardar",
-                            type: "success",
-                            onClick: function () {
-                                if (formBeneficiario.validate().isValid) {
-                                    setBeneficiario();
-                                }
-                            },
-                        },
-                    },
-                    {
-                        itemType: "button",
-                        horizontalAlignment: "left",
-                        buttonOptions: {
-                            id: "button_cancel",
-                            width: "100%",
-                            text: "Cancelar",
-                            onClick: function () {
-                                popupBeneficiario.hide();
-                            },
-                        },
-                    },
-                ],
-            })
-            .dxForm("instance");
-    }
-
-    function setBeneficiario() {
-        var formulario = $("#formBeneficiario")[0];
-        var formData = new FormData(formulario);
-
-        axios
-            .post("/beneficiario/store/", formData)
-            .then((response) => {
-                showMessageText(response.data.message);
-                popupBeneficiario.hide();
-            })
-            .catch((error) => {
-                handleErrors(error);
-            });
-    }
 });
 
-function cap_type_pay(key) {
-    // Elementos DOM
-    const gridSpaces = document.querySelector(".container-type-pay");
-    const gridInfo = document.querySelector(".container-type-pay-info");
+function setTextsBeneficiario(data, read) {
+    $("#nombre_b_form1")
+        .dxTextBox("instance")
+        .option({
+            value: data ? data.nombre : null,
+            readOnly: read,
+        });
 
-    // Limpiar campos
-    $("#monto_enviar_d_form1").val(null);
-    $("#monto_pagar_d_form1").val(null);
-    $("#monto_recibir_d_form1").val(null);
+    $("#cedula_b_form1")
+        .dxTextBox("instance")
+        .option({
+            value: data ? data.cedula : null,
+            readOnly: read,
+        });
+
+    $("#nro_cuenta_form1")
+        .dxTextBox("instance")
+        .option({
+            value: data ? data.cuenta : null,
+            readOnly: read,
+        });
+}
+
+function setTextsUsuario(data, read) {
+    $("#nombre_d_form1")
+        .dxTextBox("instance")
+        .option({
+            value: data ? data.name : null,
+            readOnly: read,
+        });
+
+    $("#telefono_d_form1")
+        .dxTextBox("instance")
+        .option({
+            value: data ? data.telefono : null,
+            readOnly: read,
+        });
+
+    $("#correo_d_form1")
+        .dxTextBox("instance")
+        .option({
+            value: data ? data.email : null,
+            readOnly: read,
+        });
+
+    $("#identificacion_d_form1")
+        .dxTextBox("instance")
+        .option({
+            value: data ? data.identificacion : null,
+            readOnly: read,
+        });
+}
+
+function capTypePay(key) {
+    var gridSpaces = null;
+    var gridInfo = null;
+
+    // Limpiamos contenido previo
+    if (initFields) {
+        $("#monto_recibir_d_form1").dxTextBox("instance").dispose();
+        $("#monto_pagar_d_form1").dxTextBox("instance").dispose();
+        $("#monto_enviar_d_form1").dxTextBox("instance").dispose();
+    }
+    if ($("#check_terminos").dxCheckBox("instance")) {
+        $("#check_terminos").dxCheckBox("instance").dispose();
+    }
+    if ($("#email_d_form1").dxTextBox("instance")) {
+        $("#email_d_form1").dxTextBox("instance").dispose();
+    }
+    if ($("#file_b_form1").dxFileUploader("instance")) {
+        $("#file_b_form1").dxFileUploader("instance").dispose();
+    }
+
+    // Elementos DOM
+    gridSpaces = document.querySelector(".container-type-pay");
+    gridInfo = document.querySelector(".container-type-pay-info");
+    isTerminosForm1 = false;
 
     // Definición de HTML y variables comunes
     var newHtml = "";
@@ -405,8 +406,7 @@ function cap_type_pay(key) {
     var tempcHtml = "";
     var cHtml = `
     <div class="form-check">
-            <div id="check_terminos"></div>
-        </div> 
+        <div id="check_terminos"></div>
     </div>
     <div class="row" style="margin-top: 80px">`;
 
@@ -415,9 +415,9 @@ function cap_type_pay(key) {
         [newHtml, tempcHtml, infoHtml] = getPaypalContent(key);
     } else if (key == "Skrill") {
         [newHtml, tempcHtml, infoHtml] = getSkrillContent(key);
-    } else if (key == "pay-bitcoin") {
+    } else if (key == "Bitcoin") {
         [newHtml, tempcHtml, infoHtml] = getBitcoinContent(key);
-    } else if (key == "pay-tehther") {
+    } else if (key == "Tehther") {
         [newHtml, tempcHtml, infoHtml] = getTehtherContent(key);
     }
 
@@ -432,10 +432,13 @@ function cap_type_pay(key) {
 
     // Configuración botones extra
     if (key == "PayPal") {
-        getPaypalButtons(key, gridSpaces);
+        getPaypalButtons(1, gridSpaces);
     } else if (key == "Skrill") {
-    } else if (key == "pay-bitcoin") {
-    } else if (key == "pay-tehther") {
+        getSkrillButtons(2, gridSpaces);
+    } else if (key == "Bitcoin") {
+        getBitcoinButtons(3, gridSpaces);
+    } else if (key == "Tehther") {
+        getTehtherButtons(4, gridSpaces);
     }
 
     $("#payments-view").show();
@@ -446,31 +449,33 @@ function cap_type_pay(key) {
     });
     var clickedRow = document.getElementById(key);
     clickedRow.querySelector(".bg-pay").classList.add("pay-selected");
+    initFields = true;
     sendForm1(key);
 }
 
 function sendForm1(key) {
-    $("#paymentsForm1").off("submit");
-    $("#paymentsForm1").on("submit", function (e) {
-        e.preventDefault();
-        var formulario = $("#paymentsForm1")[0];
-        var formData = new FormData(formulario);
-        formData.append("tasa", key);
-
-        if (!isTerminosForm1) {
-            showMessageText(
-                "Debe aceptar los terminos y condiciones",
-                "warning"
-            );
-            return;
-        }
-        axios
-            .post("/formulario/store/", formData)
-            .then((response) => {
-                showMessageText(response.data.message);
-            })
-            .catch((error) => {
-                handleErrors(error);
-            });
-    });
+    $("#paymentsForm1")
+        .off("submit")
+        .on("submit", function (e) {
+            e.preventDefault();
+            var formulario = $("#paymentsForm1")[0];
+            var formData = new FormData(formulario);
+            formData.append("tasa", key);
+            formData.append("id_moneda", "Bolivar");
+            if (!isTerminosForm1) {
+                showMessageText(
+                    "Debe aceptar los terminos y condiciones",
+                    "warning"
+                );
+                return;
+            }
+            axios
+                .post("/formulario/store/", formData)
+                .then((response) => {
+                    showMessageText(response.data.message);
+                })
+                .catch((error) => {
+                    handleErrors(error);
+                });
+        });
 }

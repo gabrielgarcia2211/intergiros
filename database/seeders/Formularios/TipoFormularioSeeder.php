@@ -13,11 +13,17 @@ class TipoFormularioSeeder extends Seeder
     {
         $tiposFormulario = [
             'Formulario de Paypal',
+            'Formulario de Skrill',
+            'Formulario de Bitcoin',
+            'Formulario de Tehther',
+            'Formulario de Peru Sol',
+            'Formulario de Peru Dolar',
+            'Formulario de Colombia Bolivar',
         ];
 
         foreach ($tiposFormulario as $index => $descripcion) {
             TipoFormulario::create([
-                'descripcion' => $descripcion . ' ' . rand(0, 9),
+                'descripcion' => $descripcion,
             ]);
         }
     }

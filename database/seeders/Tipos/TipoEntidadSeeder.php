@@ -16,9 +16,10 @@ class TipoEntidadSeeder extends Seeder
             ['descripcion' => 'PayPal'],
             ['descripcion' => 'Skrill'],
             ['descripcion' => 'Bitcoin'],
-            ['descripcion' => 'USDT'],
-            ['descripcion' => 'Perú'],
-            ['descripcion' => 'Colombia'],
+            ['descripcion' => 'Tehther'],
+            ['descripcion' => 'PeruSol'],
+            ['descripcion' => 'PeruDolar'],
+            ['descripcion' => 'ColombiaBolivar'],
         ];
 
         foreach ($tiposEntidad as $tipoEntidad) {

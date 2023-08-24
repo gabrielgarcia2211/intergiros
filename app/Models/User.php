@@ -4,11 +4,11 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-use App\Models\Beneficiarios\Beneficiario;
-use App\Models\Formulario;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Formularios\Formulario;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Beneficiarios\Beneficiario;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

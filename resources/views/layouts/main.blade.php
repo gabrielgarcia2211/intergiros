@@ -60,7 +60,8 @@
 
     <!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
     <script src="{{ asset('template/js/jquery.validate.min.js') }}"></script>
-
+    <script src="{{ asset('js/statusForm/index.js') }}"></script>
+    @include('dash.beneficiario')
     @include('layouts.old.dx_js_old')
     @yield('script')
 </body>

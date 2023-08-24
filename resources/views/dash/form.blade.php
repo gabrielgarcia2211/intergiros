@@ -28,7 +28,7 @@
                     <div class="tab-content">
                         <!--PANEL 1-->
                         <div class="tab-pane" id="pedidos">
-                            <form action="" method="POST" id="paymentsForm1">
+                            <form id="paymentsForm1">
                                 @csrf
                                 <div>
                                     <div class="col-sm-12">
@@ -52,7 +52,10 @@
                                     </h4>
                                     <div class="row">
                                         <h4 class="sub-descripction">
-                                            DATOS DEL BENEFICIARIO: <div id="add-beneficiario"></div>
+                                            DATOS DEL BENEFICIARIO: 
+                                            <div id="add-beneficiario"></div>
+                                            <div id="list-beneficiario"></div>
+                                            <div id="revert-beneficiario"></div>
                                         </h4>
                                         <div class="col-sm-6">
                                             <div class="form-group">
@@ -105,7 +108,9 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h4 class="sub-descripction">DATOS DEL DEPOSITANTE:</h4>
+                                        <h4 class="sub-descripction">DATOS DEL DEPOSITANTE:  
+                                            <div id="check-cliente"></div>
+                                        </h4>
                                         <div class="col-sm-4">
                                             <div id="nombre_d_form1"></div>
                                         </div>
@@ -138,22 +143,22 @@
                                         <h4 class="sub-descripction">DATOS DE ENVIÓ:</h4>
                                         <div class="col-sm-4 float-left">
                                             <div class="row">
-                                                <a id="PayPal" onclick="cap_type_pay(id)"><img class="bg-pay"
+                                                <a id="PayPal" onclick="capTypePay(id)"><img class="bg-pay"
                                                         src="{{ asset('template/images/paypal_b.png') }}"
                                                         align="center" /></a>
                                             </div>
                                             <div class="row">
-                                                <a id="Skrill" onclick="cap_type_pay(id)"><img class="bg-pay"
+                                                <a id="Skrill" onclick="capTypePay(id)"><img class="bg-pay"
                                                         src="{{ asset('template/images/skrill_b.png') }}"
                                                         align="center" /></a>
                                             </div>
                                             <div class="row">
-                                                <a id="pay-bitcoin" onclick="cap_type_pay(id)"><img class="bg-pay"
+                                                <a id="Bitcoin" onclick="capTypePay(id)"><img class="bg-pay"
                                                         src="{{ asset('template/images/bitcoin_b.png') }}"
                                                         align="center" /></a>
                                             </div>
                                             <div class="row">
-                                                <a id="pay-tehther" onclick="cap_type_pay(id)"><img class="bg-pay"
+                                                <a id="Tehther" onclick="capTypePay(id)"><img class="bg-pay"
                                                         src="{{ asset('template/images/tehther_b.png') }}"
                                                         align="center" /></a>
                                             </div>

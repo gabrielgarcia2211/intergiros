@@ -2,20 +2,20 @@
 
 @section('content')
     <!-- =========================
-                PRE LOADER
-            ============================== -->
+                    PRE LOADER
+                ============================== -->
     <div class="preloader">
         <div class="sk-rotating-plane"></div>
     </div>
 
     <!-- =========================
-                NAVIGATION LINKS
-            ============================== -->
+            NAVIGATION LINKS
+        ============================== -->
     @include('dash.nav')
 
     <!-- =========================
-                INTRO SECTION
-            ============================== -->
+            INTRO SECTION
+        ============================== -->
     {{-- <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="2000" id="bs-carousel">
         <!-- Overlay -->
         <div class="overlay"></div>
@@ -65,11 +65,16 @@
     </div> --}}
 
     <!-- =========================
-                    OVERVIEW SECTION
-            ============================== -->
+            OVERVIEW SECTION
+        ============================== -->
     <section id="overview" class="parallax-section mt-5">
         <div class="container">
             <center>
+                
+                <div class="row" style="margin: 30px 0">
+                    <div id="btn_status_form"></div>
+                </div>
+               
                 <div class="bancoInfo">
                     Hoy transferimos a todos los bancos de Venezuela desde:
                     <br />
@@ -88,6 +93,7 @@
                             style="margin: 0 auto;" />
                         <div class="speakers-thumb">
                             <h3>TASA PAYPAL</h3>
+                            <h2>{{ 'US $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', 'PayPal')->first())->valor ?? 'N/A') . ' Bs' }}
                             </h2>
                         </div>
                     </div>
@@ -99,6 +105,7 @@
                             style="margin: 0 auto;" />
                         <div class="speakers-thumb">
                             <h3>TASA SKRILL</h3>
+                            <h2>{{ 'US $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', 'Skrill')->first())->valor ?? 'N/A') . ' Bs' }}
                             </h2>
                         </div>
                     </div>
@@ -140,6 +147,7 @@
                             style="margin: 0 auto;" />
                         <div class="speakers-thumb">
                             <h3>TASA COLOMBIA</h3>
+                            <h2>{{ '$10.000 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', 'Colombia')->first())->valor ?? 'N/A') . ' Bs' }}
                             </h2>
                         </div>
                     </div>
@@ -148,15 +156,18 @@
         </div>
     </section>
 
+    <div id="popupStatusForm" class="formPopup">
+        <div id="dataGrid"></div>
+    </div>
+    
     <!-- =========================
-                    DETAIL SECTION
-                ============================== -->
+            DETAIL SECTION
+        ============================== -->
     @include('dash.form')
-    @include('dash.beneficiario')
 
     <!-- =========================
-                        CONTACT SECTION
-                ============================== -->
+            CONTACT SECTION
+        ============================== -->
     <section id="contact" class="parallax-section">
         <div class="container" data-wow-delay="0.6s">
             <p class="elegirIntergiros">¿POR QUÉ ELEGIR {site}?</p>
@@ -213,14 +224,14 @@
     </section>
 
     <!-- =========================
-                        FOOTER SECTION
-                ============================== -->
+            FOOTER SECTION
+        ============================== -->
     @include('dash.footer')
 
     <!-- Back top -->
     <a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
 @endsection
 @section('script')
-    <script src="{{ asset('js/form1/index.js') }}"></script>
-    <script src="{{ asset('js/form1/payments.js') }}"></script>
+    <script src="{{ asset('js/transPrincipalForm/index.js') }}"></script>
+    <script src="{{ asset('js/transPrincipalForm/payments.js') }}"></script>
 @endsection

@@ -97,7 +97,7 @@
                     </div>
                     <br>
                     <div class="row">
-                        <a href="registro.html" class="btn btn-primary" type="button"><strong>Crea tu cuenta
+                        <a href="{{ route('registro') }}" class="btn btn-primary" type="button"><strong>Crea tu cuenta
                                 y transfiere</strong></a>
                     </div>
                 </form>

@@ -19,7 +19,7 @@ class BeneficiarioController extends Controller
 
     public function getBenficiario()
     {
-        return Beneficiario::query()->with(Beneficiario::RELATION_SHIPS)->distinct()->get();
+        return Beneficiario::query()->with(Beneficiario::RELATION_SHIPS)->where('id_user', Auth::user()->id)->distinct()->get();
     }
 
     public function store(StoreBeneficiarioRequest $request)

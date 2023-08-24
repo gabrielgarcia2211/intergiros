@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('content')
     <!-- PRE LOADER -->
     <div class="preloader">
@@ -86,7 +85,7 @@
                 <!--      Wizard container        -->
                 <div class="wizard-container" style="margin-bottom: 50px; margin-top: 20px;">
                     <div class="card-wiz wizard-card" data-color="azzure" id="wizard">
-                        <form action="" method="POST" id="BolivaresPeruVen-form">
+                        <form id="paymentstransPeruForm">
                             @csrf
                             <div class="wizard-navigation">
                                 <ul>
@@ -102,14 +101,16 @@
                                         <div class="row">
                                             <h4 class="sub-descripction">
                                                 DATOS DEL BENEFICIARIO:
+                                                <div id="add-beneficiario"></div>
+                                                <div id="list-beneficiario"></div>
+                                                <div id="revert-beneficiario"></div>
                                             </h4>
                                             <div class="col-sm-4">
                                                 <h4 class="sub-descripction-label">
                                                     NOMBRE DEL BENEFICIARIO:
                                                 </h4>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="nombre_b_form3"
-                                                        name="nombre_b_form3" placeholder="NOMBRE" />
+                                                    <div id="nombre_b_transPeruForm"></div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
@@ -117,42 +118,14 @@
                                                     CEDULA DEL BENEFICIARIO:
                                                 </h4>
                                                 <div class="form-group">
-                                                    <input type="number" class="form-control" id="cedula_b_form3"
-                                                        name="cedula_b_form3" placeholder="CEDULA" />
+                                                    <div id="cedula_b_transPeruForm"></div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <h4 class="sub-descripction-label">
                                                     TIPO DE IDENTIFICACION:
                                                 </h4>
-                                                <div class="form-check">
-                                                    <input class="form-check-input radio-p" name="radioLabelBol"
-                                                        type="radio" value="V" id="check_v_bolivares" checked />
-                                                    <label class="form-check-label" for="check_v_bolivares">
-                                                        V
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input radio-p" name="radioLabelBol"
-                                                        type="radio" value="E" id="check_e_bolivares" />
-                                                    <label class="form-check-label" for="check_e_bolivares">
-                                                        E
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input radio-p" name="radioLabelBol"
-                                                        type="radio" value="J" id="check_j_bolivares" />
-                                                    <label class="form-check-label" for="check_j_bolivares">
-                                                        J
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input radio-p" name="radioLabelBol"
-                                                        type="radio" value="P" id="check_p_bolivares" />
-                                                    <label class="form-check-label" for="check_p_bolivares">
-                                                        P
-                                                    </label>
-                                                </div>
+                                                <div id="radio_label_transPeruForm"></div>
                                             </div>
                                         </div>
                                         <br>
@@ -162,63 +135,7 @@
                                                     BANCO:
                                                 </h4>
                                                 <div class="form-group">
-                                                    <select class="form-control" id="banco_b_form3" name="banco_b_form3">
-                                                        <option disabled="" selected="">
-                                                            - SELECCIONAR BANCO -
-                                                        </option>
-                                                        <option data-num="">Banesco Banco Universal
-                                                        </option>
-                                                        <option data-num="">Banco de Venezuela</option>
-                                                        <option data-num="">Banco Provincial</option>
-                                                        <option data-num="">Banco Mercantil</option>
-                                                        <option data-num="">Banco Occidental de
-                                                            Descuento</option>
-                                                        <option data-num="">Bancaribe</option>
-                                                        <option data-num="">Banco Exterior</option>
-                                                        <option data-num="">Venezolano de Crédito
-                                                        </option>
-                                                        <option data-num="">Banco Central de Venezuela
-                                                        </option>
-                                                        <option data-num="">Banco Industrial de
-                                                            Venezuela</option>
-                                                        <option data-num="">Banco Caroní</option>
-                                                        <option data-num="">Banco Sofitasa</option>
-                                                        <option data-num="">Banco Plaza Banco Universal
-                                                        </option>
-                                                        <option data-num="">Banco de la Gente
-                                                            Emprendedora</option>
-                                                        <option data-num="">Banco del Pueblo Soberano
-                                                        </option>
-                                                        <option data-num="">Banco Fondo Común</option>
-                                                        <option data-num="">100% Banco</option>
-                                                        <option data-num="">DelSur Banco Universal
-                                                        </option>
-                                                        <option data-num="">Banco del Tesoro</option>
-                                                        <option data-num="">Banco Agrícola de Venezuela
-                                                        </option>
-                                                        <option data-num="">Bancrecer, Banco
-                                                            Microfinanciero</option>
-                                                        <option data-num="">Mi Banco Banco
-                                                            Microfinanciero</option>
-                                                        <option data-num="">Banco Activo</option>
-                                                        <option data-num="">Bancamiga Banco
-                                                            Microfinanciero</option>
-                                                        <option data-num="">Banco Internacional de
-                                                            Desarrollo</option>
-                                                        <option data-num="">Banplus Banco Universal
-                                                        </option>
-                                                        <option data-num="">Banco Bicentenario Banco
-                                                            Universal</option>
-                                                        <option data-num="">Banco Espirito Santo
-                                                        </option>
-                                                        <option data-num="">Banco de la Fuerza Armada
-                                                            Nacional Bolivariana</option>
-                                                        <option data-num="">Citibank</option>
-                                                        <option data-num="">Banco Nacional de Crédito
-                                                        </option>
-                                                        <option data-num="">Instituto Municipal de
-                                                            Crédito Popular</option>
-                                                    </select>
+                                                    <div id="banco_b_transPeruForm"></div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
@@ -226,12 +143,10 @@
                                                     NUMERO DE CUENTA:
                                                 </h4>
                                                 <div class="form-group">
-                                                    <input type="number" class="form-control" id="nro_cuenta_form3"
-                                                        name="nro_cuenta_form3" placeholder="CUENTA" />
+                                                    <div id="nro_cuenta_transPeruForm"></div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4 moneda-otro-view">
-
                                             </div>
                                         </div>
                                         <div class="row">
@@ -239,51 +154,24 @@
                                                 <h4 class="sub-descripction-label">
                                                     TIPO DE CUENTA:
                                                 </h4>
-                                                <div class="form-check">
-                                                    <input class="form-check-input radio-p" name="radioCuenta"
-                                                        type="radio" value="ahorros" id="check_ahorros_bolivares"
-                                                        checked />
-                                                    <label class="form-check-label" for="check_ahorros_bolivares">
-                                                        AHORROS
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input radio-p" name="radioCuenta"
-                                                        type="radio" value="corriente"
-                                                        id="check_corriente_bolivares" />
-                                                    <label class="form-check-label" for="check_corriente_bolivares">
-                                                        CORRIENTE
-                                                    </label>
-                                                </div>
+                                                <div id="radio_type_transPeruForm"></div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <h4 class="sub-descripction-label">
                                                     MONEDA:
                                                 </h4>
-                                                <div class="form-check">
-                                                    <input class="form-check-input radio-p group-moneda"
-                                                        name="radioMoneda" type="radio" value="soles"
-                                                        id="check_moneda_soles" />
-                                                    <label class="form-check-label" for="check_moneda_soles">
-                                                        SOLES
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input radio-p group-moneda"
-                                                        name="radioMoneda" type="radio" value="dolares"
-                                                        id="check_moneda_dolares" />
-                                                    <label class="form-check-label" for="check_moneda_dolares">
-                                                        DOLARES
-                                                    </label>
-                                                </div>
+                                                <div id="radio_moneda_transPeruForm"></div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" style="margin-top: 20px">
                                             <div class="col-sm-4">
-
-                                            </div>
-                                            <div class="col-sm-4 group-moneda-view">
-
+                                                <div id="moneda_b_transPeruForm"></div>
+                                                <div class="row" id="group-view-moneda" style="margin-left: 6px">
+                                                    <div class="col-6">
+                                                        <h6 class="d-inline-block">Monto BS:</h6>
+                                                        <p class="d-inline-block" id="valor_b_transPeruForm"></p>
+                                                    </div>
+                                                </div>                                                
                                             </div>
                                         </div>
                                         <br>
@@ -300,56 +188,38 @@
                                                     realizaremos su transferencia por medio de este
                                                     método.
                                                 </p>
-                                                <div class="form-check" style="margin-left: 10px">
-                                                    <input class="form-check-input radio-p group-bolivares-bp"
-                                                        name="radioTypeH" type="radio" value="check_h_bolivares_si"
-                                                        id="check_h_bolivares_si" />
-                                                    <label class="form-check-label" for="check_h_bolivares_si">
-                                                        SI
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input radio-p group-bolivares-bp"
-                                                        name="radioTypeH" type="radio" value="check_h_bolivares_no"
-                                                        id="check_h_bolivares_no" />
-                                                    <label class="form-check-label" for="check_h_bolivares_no">
-                                                        NO
-                                                    </label>
-                                                </div>
+                                                <div id="radio_type_movil"></div>
                                             </div>
                                             <div class="col-sm-5 group-bolivares-view-bp">
-
+                                                <h4 class="sub-descripction-label" id="label_movil_b">
+                                                    Ingrese el Teléfono vinculado a Pago Móvil:
+                                                </h4>
+                                                <div id="movil_b_transPeruForm"></div>
                                             </div>
                                         </div>
                                         <br>
                                         <hr>
                                         <div class="row">
+                                            <h4 class="sub-descripction">DATOS DEL DEPOSITANTE:  
+                                                <div id="check-cliente"></div>
+                                            </h4>
                                             <div class="col-sm-4">
                                                 <h4 class="sub-descripction-label">
                                                     NOMBRE DEL DEPOSITANTE:
                                                 </h4>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" id="nombre_d_form3"
-                                                        name="nombre_d_form3" placeholder="NOMBRE" />
-                                                </div>
+                                                <div id="nombre_d_transPeruForm"></div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <h4 class="sub-descripction-label">
                                                     EMAIL DEL DEPOSITANTE:
                                                 </h4>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" id="correo_d_form3"
-                                                        name="correo_d_form3" placeholder="EMAIL" />
-                                                </div>
+                                                <div id="correo_d_transPeruForm"></div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <h4 class="sub-descripction-label">
                                                     CELULAR DEL DEPOSITANTE:
                                                 </h4>
-                                                <div class="form-group">
-                                                    <input type="number" class="form-control" id="telefono_d_form3"
-                                                        name="telefono_d_form3" placeholder="CELULAR" />
-                                                </div>
+                                                <div id="telefono_d_transPeruForm"></div>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -357,47 +227,29 @@
                                                 <h4 class="sub-descripction-label">
                                                     TU IDENTIFICACION:
                                                 </h4>
-                                                <div class="form-group">
-                                                    <input type="number" class="form-control"
-                                                        id="identificacion_d_form3" name="identificacion_d_form3"
-                                                        placeholder="IDENTIFICACION" />
-                                                </div>
+                                                <div id="identificacion_d_transPeruForm"></div>
                                             </div>
                                         </div>
                                         <br>
                                         <div class="row">
-                                            <div class="col-sm-8">
-                                                <p style="text-align: left;">Tamaño maximo del archivo: 5.72 MB. | Tipo de
+                                            <div class="col-sm-12">
+                                                <p>Tamaño maximo del archivo: 5.72 MB. | Tipo de
                                                     archivos permitidos: gif, jpeg, png, jpg | Cantidad maxima de archivo: 1
                                                     | Cantidad minima de archivo: 1</p>
                                                 <hr>
-                                                <input type="file" class="form-control" id="file_form3_b"
-                                                    nameid="file_form3_b" />
+                                                <div id="file_b_transPeruForm"></div>
                                             </div>
                                         </div>
                                         <br>
-                                        <div class="row" style="margin-left: 10px">
-                                            <div class="form-check">
-                                                <input class="form-check-input radio-p" type="radio"
-                                                    value="check_terminos_peru_venez" id="check_terminos_peru_venez"
-                                                    style="display: inline-block;" />
-                                                <label class="form-check-label" for="check_terminos_peru_venez"
-                                                    style="display: inline-block;">
-                                                    Al enviar este formulario, usted está aceptando nuestros <a
-                                                        href="../sites/politicas" target="_blank">Terminos y
-                                                        Condiciones</a>
-                                                </label>
-                                            </div>
+                                        <div class="row" style="display: flex; justify-content: center; align-items: center; text-align:center">
+                                            <div id="check_terminos"></div>
                                         </div>
                                         <br>
-                                        <div class="row">
+                                        <div class="row" style="display: flex; justify-content: center; align-items: center; text-align:center; margin-top:20px">
                                             <div class="col-md-12">
-                                                <button type="button" onclick="send_form_bolivares_peruven()"
-                                                    class="btn btn-primary" style="width: 100%;">
-                                                    Enviar
-                                                </button>
+                                                <div id="btn_send_transPeruForm"></div>
                                             </div>
-                                        </div>
+                                        </div>                                        
                                     </div>
                                 </div>
                             </div>
@@ -414,4 +266,7 @@
 
     <!-- Back top -->
     <a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+@endsection
+@section('script')
+    <script src="{{ asset('js/transPeruForm/index.js') }}"></script>
 @endsection

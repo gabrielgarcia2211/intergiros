@@ -1,7 +1,7 @@
 function setTextBox(element = "", config = {}, validations = []) {
     $(element).dxTextBox(config).dxValidator({
         validationRules: validations,
-    });
+    }).dxTextBox("instance");
 }
 
 function setTagBox(element = "", config = {}, validations = []) {
@@ -28,6 +28,12 @@ function setCheckBox(element = "", config = {}, validations = []) {
     }).dxCheckBox("instance");
 }
 
+function setFileUploader(element = "", config = {}, validations = []) {
+    $(element).dxFileUploader(config).dxValidator({
+        validationRules: validations
+    });
+}
+
 function setTextArea(element = "", config = {}, validations = []) {
     $(element).dxTextArea(config).dxValidator({
         validationRules: validations,
@@ -37,7 +43,7 @@ function setTextArea(element = "", config = {}, validations = []) {
 
 //BUTTONS
 function setButton(element = "", config = {}) {
-    $(element).dxButton(config);
+    $(element).dxButton(config).dxButton("instance");
 }
 
 function setButtonFloating(element = "", config = {}) {
@@ -131,10 +137,6 @@ function handleErrors(error) {
 // FORMATO DE MONEDAS
 function devFormatoMoneda(key, value) {
     return new Promise((resolve, reject) => {
-        if (value < 5) {
-            return;
-        }
-
         var formData = new FormData();
         formData.append("tasa", key);
         formData.append("monto", value);
