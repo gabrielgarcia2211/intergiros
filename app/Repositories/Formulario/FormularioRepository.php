@@ -2,6 +2,8 @@
 
 namespace App\Repositories\Formulario;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Models\Formularios\Formulario;
 
 
@@ -40,5 +42,12 @@ class FormularioRepository
     public static function delete(Formulario $model)
     {
         return $model->delete();
+    }
+
+    public static function getFormCountByStates()
+    {
+        return Formulario::select('id_estado', DB::raw('COUNT(*) as count'))
+            ->groupBy('id_estado')
+            ->get();
     }
 }

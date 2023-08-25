@@ -2,7 +2,7 @@
 
 namespace App\Models\Tipos;
 
-use App\Models\Formulario;
+use App\Models\Formularios\Formulario;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

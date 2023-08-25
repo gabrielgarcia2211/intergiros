@@ -1,7 +1,6 @@
 var dataGrid = null;
 
 $(document).ready(function () {
-    init();
     function init() {
         dataGrid = $("#dataGrid")
             .dxDataGrid({
@@ -41,7 +40,6 @@ $(document).ready(function () {
                         caption: "Estado",
                         alignment: "center",
                         cellTemplate: function (container, options) {
-                            console.log(options.data.id_estado);
                             var estado = options.data.id_estado;
                             var backgroundColor = "";
                             var iconClass = "";
@@ -53,7 +51,7 @@ $(document).ready(function () {
                                 title = "Pendiente";
                             } else if (estado === "EN PROCESO") {
                                 backgroundColor = "blue";
-                                iconClass = "dx-icon-preferences´¿+'¿'";
+                                iconClass = "dx-icon-preferences";
                                 title = "En Proceso";
                             } else if (estado === "ENTREGADO") {
                                 backgroundColor = "green";
@@ -87,7 +85,7 @@ $(document).ready(function () {
                         alignment: "center",
                         cellTemplate: function (container, options) {
                             var hasInfo =
-                                options.data.imagen_comprobante !== "";
+                                options.data.imagen_comprobante !== null;
                             var iconClass = hasInfo
                                 ? "dx-icon-eyeopen"
                                 : "dx-icon-eyeclose";
@@ -105,28 +103,7 @@ $(document).ready(function () {
 
                             $button.on("click", function () {
                                 if (hasInfo) {
-                                    var popupOptions = {
-                                        contentTemplate: function (
-                                            contentElement
-                                        ) {
-                                            $("<img>")
-                                                .attr(
-                                                    "src",
-                                                    "https://via.placeholder.com/400"
-                                                )
-                                                .css("max-width", "100%")
-                                                .appendTo(contentElement);
-                                        },
-                                        height: "auto",
-                                        width: "auto",
-                                        showCloseButton: true,
-                                    };
-
-                                    $("<div>")
-                                        .appendTo("body")
-                                        .dxPopup(popupOptions)
-                                        .dxPopup("instance")
-                                        .show();
+                                    popupImage(options.data.imagen_comprobante);
                                 }
                             });
                         },
@@ -136,10 +113,15 @@ $(document).ready(function () {
                         caption: "Voucher",
                         alignment: "center",
                         cellTemplate: function (container, options) {
-                            var hasInfo = options.data.archivo !== "";
+                            var hasInfo = options.data.archivo !== null;
                             var iconClass = hasInfo
-                                ? "dx-icon-eyeopen"
-                                : "dx-icon-eyeclose";
+                                ? "dx-icon-inserttable"
+                                : "dx-icon-deletetable";
+
+                            var iconTitle = hasInfo
+                                ? "Gestion archivo"
+                                : "Sin archivo";
+
                             var backgroundColor = hasInfo ? "green" : "red";
 
                             var $button = $("<button>")
@@ -148,13 +130,14 @@ $(document).ready(function () {
                                 .appendTo(container);
 
                             $("<div>")
+                                .attr("title", iconTitle)
                                 .addClass("dx-icon")
                                 .addClass(iconClass)
                                 .appendTo($button);
 
                             $button.on("click", function () {
                                 if (hasInfo) {
-                                    console.log("Voucher");
+                                    popupImage(options.data.archivo);
                                 }
                             });
                         },
@@ -166,7 +149,8 @@ $(document).ready(function () {
                 allowColumnResizing: true,
                 showColumnsLines: true,
                 showRowLines: true,
-                showBordes: true,
+                showBorders: true,
+                columnAutoWidth: true,
                 rowAlternationEnabled: true,
             })
             .dxDataGrid("instance");
@@ -179,7 +163,7 @@ $(document).ready(function () {
             offset: { x: 0, y: -100 },
         },
         visible: false,
-        title: "Gestion de Beneficiarios",
+        title: "Estado de peticiones",
         hideOnOutsideClick: true,
         showCloseButton: true,
     });
@@ -195,4 +179,30 @@ $(document).ready(function () {
             init();
         },
     });
+
+    function popupImage(url) {
+        var popupOptions = {
+            contentTemplate: function (contentElement) {
+                $("<img>")
+                    .attr("src", url)
+                    .css("max-width", "100%")
+                    .appendTo(contentElement);
+            },
+            height: "auto",
+            width: "auto",
+            showCloseButton: true,
+            hideOnOutsideClick: true,
+        };
+
+        popupOptions.maxWidth = 500;
+
+        var popupInstance = $("<div>")
+            .appendTo("body")
+            .dxPopup(popupOptions)
+            .dxPopup("instance");
+
+        popupInstance.show();
+
+        return popupInstance;
+    }
 });

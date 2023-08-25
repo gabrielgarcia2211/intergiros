@@ -57,8 +57,10 @@ return [
         ],
 
         'comprobante_disk' => [
-            'driver' => 'local', // Puedes usar 'local', 's3' u otros drivers según tus necesidades
-            'root' => storage_path('app/comprobantes'), // Ruta de almacenamiento para el disco personalizado
+            'driver' => 'local',
+            'root' => storage_path('app/comprobantes'),
+            'url' => env('APP_URL').'/comprobantes',
+            'visibility' => 'public',
         ],
 
     ],
@@ -76,6 +78,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('comprobantes') => storage_path('app/comprobantes'),
     ],
 
 ];

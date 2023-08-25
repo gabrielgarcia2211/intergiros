@@ -9,6 +9,7 @@ use App\Models\Tipos\Estado;
 use App\Models\Tipos\TipoMoneda;
 use App\Models\Tipos\TipoEntidad;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Formularios\TipoFormulario;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -85,5 +86,33 @@ class Formulario extends Model
             default:
                 return 'Desconocido';
         }
+    }
+
+    public function getImagenComprobanteAttribute()
+    {
+        $disk = 'comprobante_disk';
+
+        if ($this->attributes['imagen_comprobante']) {
+            if (!Storage::disk($disk)->exists($this->attributes['imagen_comprobante'])) {
+                return asset('img/no-image.png');
+            }
+            return Storage::disk($disk)->url($this->attributes['imagen_comprobante']);
+        }
+
+        return null;
+    }
+
+    public function getArchivoAttribute()
+    {
+        $disk = 'comprobante_disk';
+
+        if ($this->attributes['archivo']) {
+            if (!Storage::disk($disk)->exists($this->attributes['archivo'])) {
+                return asset('img/no-image.png');
+            }
+            return Storage::disk($disk)->url($this->attributes['archivo']);
+        }
+
+        return null;
     }
 }

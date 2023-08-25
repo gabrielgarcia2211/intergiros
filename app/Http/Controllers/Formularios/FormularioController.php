@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Formularios;
 
+use Illuminate\Http\Request;
 use App\Services\FileService;
 use App\Models\Tipos\TipoMoneda;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Formularios\Formulario;
-use Illuminate\Support\Facades\Schema;
 use App\Repositories\Formulario\FormularioRepository;
 use App\Http\Controllers\ResponseController as Response;
 use App\Http\Requests\Formularios\StoreFormularioRequest;
@@ -29,9 +29,21 @@ class FormularioController extends Controller
         return view('');
     }
 
-    public function getFormularios()
+    public function getFormularios(Request $request)
     {
-        return Formulario::query()->with(Formulario::RELATION_SHIPS)->distinct()->get();
+        $query = Formulario::query();
+
+        switch (true) {
+            case ($request->has('sort') && !empty($request->input('sort'))):
+            case ($request->has('filter') && !empty($request->input('filter'))):
+                $query->leftJoin('tipo_moneda', 'tipo_moneda.id', '=', 'formulario.id_moneda')
+                    ->leftJoin('tipo_entidad', 'tipo_entidad.id', '=', 'formulario.id_entidad')
+                    ->leftJoin('tipo_formulario', 'tipo_formulario.id', '=', 'formulario.id_formulario')
+                    ->leftJoin('users', 'users.id', '=', 'formulario.id_user');
+                break;
+        }
+
+        return setDataGrid($query, $request, Formulario::RELATION_SHIPS, 'formulario.*', [], 'desc');
     }
 
     public function getFormulariosUser()
@@ -80,10 +92,23 @@ class FormularioController extends Controller
     public function update(UpdateFormularioRequest $request, Formulario $Formulario)
     {
         try {
-            $data = FormularioRepository::update($Formulario, $request->input());
-
+            $response = $request->all();
+            if (isset($response['is_delete']) && !empty($response['is_delete'])) {
+                if ($response['is_delete'] && empty($response['archivo'])) {
+                    $file = basename(Formulario::find($Formulario['id'])->archivo);
+                    $this->fileService->deleteFile($file);
+                } else {
+                    $path = $this->fileService->saveFile($response['archivo']);
+                    $response['archivo'] = $path;
+                }
+                unset($response['is_delete']);
+            }
+            $data = FormularioRepository::update($Formulario, $response);
             return Response::sendResponse($data, 'Registro actualizado con exito.');
         } catch (\Exception $ex) {
+            if (isset($path)) {
+                $this->fileService->deleteFile($file);
+            }
             return Response::sendError('Ocurrio un error inesperado al intentar procesar la solicitud', 500);
         }
     }
@@ -91,5 +116,10 @@ class FormularioController extends Controller
     public function destroy(Formulario $Formulario)
     {
         return Response::sendResponse(FormularioRepository::delete($Formulario), 'Recurso eliminado con exito');
+    }
+
+    public function getCantForms()
+    {
+        return FormularioRepository::getFormCountByStates();
     }
 }

@@ -13,7 +13,7 @@ function setTagBox(element = "", config = {}, validations = []) {
 function setSelectBox(element = "", config = {}, validations = []) {
     $(element).dxSelectBox(config).dxValidator({
         validationRules: validations,
-    });
+    }).dxSelectBox("instance");
 }
 
 function setRadioGroup(element = "", config = {}, validations = []) {
@@ -151,3 +151,25 @@ function devFormatoMoneda(key, value) {
     });
 }
 // END FORMATO DE MONEDAS
+
+// FILTER DATA GRID
+function setFilterFieldsDataGrid(result, callback) {
+    if (result.sort != null) {
+        result.sort.forEach((sort) => {
+            sort.selector = callback(sort.selector);
+        });
+    }
+
+    if (result.filter != null) {
+        if (!Array.isArray(result.filter[0])) {
+            result.filter[0] = callback(result.filter[0]);
+        } else {
+            for (var i = 0; i < result.filter.length; i += 2) {
+                result.filter[i][0] = callback(result.filter[i][0]);
+            }
+        }
+    }
+
+    return result;
+}
+// END FILTER DATA GRID

@@ -121,3 +121,110 @@ function mapTasaPay($tasa)
             break;
     }
 }
+
+function setDataGrid($query, $request, $with = [], $select = false, $conditions = [], $orderBy = 'asc')
+{
+    # Ordenamiento - Single
+    if ($request->has('sort') && !empty($request->input('sort'))) {
+        $sort = $request->input('sort');
+        foreach ($sort as $sort_option) {
+            $field = $sort_option['selector'];
+            $desc = $sort_option['desc'];
+            $query->orderBy($field, ($desc == 'true') ? 'desc' : 'asc');
+        }
+    }
+
+    # Filtros
+    if ($request->has('filter') && !empty($request->input('filter'))) {
+        $filters = $request->input('filter');
+        if (count($filters) == 3 && !is_array($filters[0])) {
+            $operator = getSqlOperator($filters[1]);
+            $value = getQueryValue($filters[1], $filters[2]);
+            $query->where($filters[0], $operator, $value);
+        } else {
+            for ($i = 0; $i < count($filters); $i += 2) {
+                # Operadores
+                $operator = getSqlOperator($filters[$i][1]);
+                $value = getQueryValue($filters[$i][1], $filters[$i][2]);
+                $query->where($filters[$i][0], $operator, $value);
+            }
+        }
+    }
+
+    if (!empty($conditions)) {
+        foreach ($conditions as $column => $value) {
+            $query->where($column, $value);
+        }
+    }
+
+    $skip = $request->input('skip') ?? 1;
+    $take = $request->input('take') ?? 0;
+
+    # Paginación
+    $total_count = getTotal($query, $select);
+    $page = $skip / ($take + 1);
+    $page_size = $take;
+    $query->skip($skip)
+        ->take($take)
+        ->with($with)
+        ->orderBy('id', $orderBy)
+        ->distinct();
+
+    if (!$select) {
+        $data = $query->get();
+    } else {
+        $data = $query->get($select);
+    }
+
+    return response()->json([
+        'data' => $data,
+        'totalCount' => $total_count,
+        'current_page' => $page,
+        'per_page' => $page_size,
+    ]);
+}
+
+function getTotal($query, $select)
+{
+    return count($query->distinct()->get($select));
+}
+
+function getSqlOperator($operator)
+{
+    switch ($operator) {
+        case 'contains':
+            return 'LIKE';
+        case 'notcontains':
+            return 'NOT LIKE';
+        case 'startswith':
+            return 'LIKE';
+        case 'endswith':
+            return 'LIKE';
+            // case '=':
+            //     return '=';
+        case '=':
+            return 'LIKE';
+        case '<>':
+            return '<>';
+        default:
+            return null;
+    }
+}
+
+function getQueryValue($operator, $value)
+{
+    switch ($operator) {
+        case 'contains':
+            return '%' . $value . '%';
+        case 'notcontains':
+            return '%' . $value . '%';
+        case 'startswith':
+            return $value . '%';
+        case 'endswith':
+            return '%' . $value;
+        case '=':
+            return '%' . $value . '%';
+        default:
+            return $value;
+    }
+}

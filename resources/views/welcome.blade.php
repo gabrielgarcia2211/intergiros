@@ -93,7 +93,7 @@
                             style="margin: 0 auto;" />
                         <div class="speakers-thumb">
                             <h3>TASA PAYPAL</h3>
-                            <h2>{{ 'US $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', 'PayPal')->first())->valor ?? 'N/A') . ' Bs' }}
+                            <h2>{{ 'US $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', '1')->first())->valor ?? 'N/A') . ' Bs' }}
                             </h2>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                             style="margin: 0 auto;" />
                         <div class="speakers-thumb">
                             <h3>TASA SKRILL</h3>
-                            <h2>{{ 'US $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', 'Skrill')->first())->valor ?? 'N/A') . ' Bs' }}
+                            <h2>{{ 'US $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', '2')->first())->valor ?? 'N/A') . ' Bs' }}
                             </h2>
                         </div>
                     </div>
@@ -117,6 +117,8 @@
                             style="margin: 0 auto;" />
                         <div class="speakers-thumb">
                             <h3>TASA BITCOIN</h3>
+                            <h2>{{ 'US $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', '3')->first())->valor ?? 'N/A') . ' Bs' }}
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -127,6 +129,8 @@
                             style="margin: 0 auto;" />
                         <div class="speakers-thumb">
                             <h3>TASA USDT</h3>
+                            <h2>{{ 'US $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', '4')->first())->valor ?? 'N/A') . ' Bs' }}
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -137,6 +141,10 @@
                             style="margin: 0 auto;" />
                         <div class="speakers-thumb">
                             <h3>TASA PERU</h3>
+                            <h2>{{ 'SOL $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', '5')->first())->valor ?? 'N/A') . ' Bs' }}
+                            </h2>
+                            <h2>{{ 'US $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', '6')->first())->valor ?? 'N/A') . ' Bs' }}
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -147,7 +155,7 @@
                             style="margin: 0 auto;" />
                         <div class="speakers-thumb">
                             <h3>TASA COLOMBIA</h3>
-                            <h2>{{ '$10.000 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', 'Colombia')->first())->valor ?? 'N/A') . ' Bs' }}
+                            <h2>{{ '$10.000 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', '7')->first())->valor ?? 'N/A') . ' Bs' }}
                             </h2>
                         </div>
                     </div>

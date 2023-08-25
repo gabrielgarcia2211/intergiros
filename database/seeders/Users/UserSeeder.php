@@ -19,7 +19,6 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('admin123'),
                 'identificacion' => 123456,
                 'telefono' => 78900,
-                //'rol_id' => 1, // Supongamos que el ID del rol de administrador es 1
             ],
             [
                 'name' => 'Usuario Normal',
@@ -27,7 +26,6 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('user123'),
                 'identificacion' => 123456,
                 'telefono' => 78900,
-                //'rol_id' => 2, // Supongamos que el ID del rol de usuario normal es 2
             ],
             [
                 'name' => 'Usuario Invitado',
@@ -35,12 +33,16 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('user123'),
                 'identificacion' => 123456,
                 'telefono' => 78900,
-                //'rol_id' => 2, // Supongamos que el ID del rol de invitado es 3
             ],
         ];
 
         foreach ($usuarios as $usuario) {
-            User::create($usuario);
+            $user = User::create($usuario);
+            if ($user['name'] == 'Usuario Administrador') {
+                $user->assignRole('admin');
+            } else {
+                $user->assignRole('cliente');
+            }
         }
     }
 }

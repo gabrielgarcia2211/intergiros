@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
@@ -65,13 +64,17 @@ class LoginController extends Controller
 
             if ($user && Hash::check($request['contraseña'], $user->password)) {
                 $this->guard()->login($user);
+
+                if ($user->hasRole('admin')) {
+                    return redirect('/admin');
+                }
                 return redirect('/sites/welcome');
+
             } else {
                 array_push($ingresoError, "¡Los datos ingresados son incorrectos!");
                 return view('home.inicioSesion')->with(compact('ingresoError'));;
             }
         } catch (\Exception $ex) {
-            Log::debug($ex->getMessage());
             return Response::sendError("Ocurrio un error inesperado al intentar procesar la solicitud", 500);
         }
     }
