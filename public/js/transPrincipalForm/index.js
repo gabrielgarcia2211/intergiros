@@ -383,7 +383,7 @@ function capTypePay(key) {
     if (initFields) {
         $("#monto_recibir_d_form1").dxTextBox("instance").dispose();
         $("#monto_pagar_d_form1").dxTextBox("instance").dispose();
-        $("#monto_enviar_d_form1").dxTextBox("instance").dispose();
+        $("#monto_enviar_d_form1").dxNumberBox("instance").dispose();
     }
     if ($("#check_terminos").dxCheckBox("instance")) {
         $("#check_terminos").dxCheckBox("instance").dispose();

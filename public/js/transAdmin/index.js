@@ -43,6 +43,7 @@ $(document).ready(function () {
                         dataField: "created_at",
                         caption: "Creado",
                         alignment: "center",
+                        allowFiltering: false,
                     },
                     {
                         dataField: "nro_cuenta",
@@ -259,6 +260,7 @@ $(document).ready(function () {
                 showRowLines: true,
                 rowAlternationEnabled: true,
                 columnAutoWidth: true,
+                columnAutoHeight: true,
                 showBorders: true,
                 scrolling: {
                     columnRenderingMode: "virtual",
@@ -426,9 +428,9 @@ $(document).ready(function () {
     function relationsTable(selector) {
         switch (selector) {
             case "tipo_moneda.tipo":
-                return "tipo_entidad.tipo";
+                return "tipo_moneda.tipo";
             case "tipo_entidad.descripcion":
-                return "tipo_moneda.descripcion";
+                return "tipo_entidad.descripcion";
             case "tipo_formulario.descripcion":
                 return "tipo_formulario.descripcion";
             case "user.name":
@@ -439,6 +441,34 @@ $(document).ready(function () {
                 return "users.telefono";
             case "user.email":
                 return "users.email";
+            default:
+                return selector;
         }
     }
 });
+
+function generateCsv() {
+    axios
+        .get("/formulario/report", { responseType: "blob" })
+        .then(function (response) {
+            const blob = new Blob([response.data], {
+                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            });
+            const contentDisposition = response.headers["content-disposition"];
+            const matches = contentDisposition.match(
+                /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/
+            );
+            const fileName = matches[1].replace(/['"]/g, "");
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.style.display = "none";
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(function (error) {
+            handleErrors(error);
+        });
+}

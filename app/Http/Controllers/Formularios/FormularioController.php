@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Formularios;
 use Illuminate\Http\Request;
 use App\Services\FileService;
 use App\Models\Tipos\TipoMoneda;
+use App\Exports\FormularioExport;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Formularios\Formulario;
 use App\Repositories\Formulario\FormularioRepository;
 use App\Http\Controllers\ResponseController as Response;
@@ -48,7 +50,7 @@ class FormularioController extends Controller
 
     public function getFormulariosUser()
     {
-        return Formulario::query()->where('id_user', Auth::user()->id)->with(Formulario::RELATION_SHIPS)->distinct()->get();
+        return Formulario::query()->where('id_user', Auth::user()->id)->with(Formulario::RELATION_SHIPS)->orderBy('id', 'desc')->distinct()->get();
     }
 
     public function store(StoreFormularioRequest $request)
@@ -121,5 +123,15 @@ class FormularioController extends Controller
     public function getCantForms()
     {
         return FormularioRepository::getFormCountByStates();
+    }
+
+    public function export()
+    {
+        try {
+            $data = Formulario::query()->with(Formulario::RELATION_SHIPS)->orderBy('id', 'desc')->distinct()->get()->toArray();
+            return Excel::download(new FormularioExport($data), now() . '_reporte.xlsx');
+        } catch (\Exception $ex) {
+            return Response::sendError('Ocurrio un error inesperado al intentar procesar la solicitud', 500);
+        }
     }
 }

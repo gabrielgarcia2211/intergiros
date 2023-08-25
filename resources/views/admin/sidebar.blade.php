@@ -11,10 +11,18 @@
     <hr class="sidebar-divider my-0">
     
     <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('admin') }}">
             <i class="dx-icon-home dx-icon-custom-style"></i>
             <span>Inicio</span></a>
            
+    </li>
+
+    <hr class="sidebar-divider my-0">
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.tasas') }}">
+            <i class="dx-icon-menu dx-icon-custom-style"></i>
+            <span>Tasas</span></a>
     </li>
 
     <hr class="sidebar-divider">

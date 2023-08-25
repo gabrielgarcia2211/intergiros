@@ -39,6 +39,12 @@ function setTextArea(element = "", config = {}, validations = []) {
         validationRules: validations,
     });
 }
+
+function setNumberBox(element = "", config = {}, validations = []) {
+    $(element).dxNumberBox(config).dxValidator({
+        validationRules: validations,
+    }).dxNumberBox("instance");
+}
 //END FIELDS
 
 //BUTTONS
@@ -113,7 +119,7 @@ function handleErrors(error) {
             break;
         case 403:
             showMessageText(
-                "El rol que tiene asignado, no tiene permiso para crear o editar los roles.",
+                "El rol que tiene asignado, no tiene permiso para realizar la accion.",
                 "warning"
             );
             break;

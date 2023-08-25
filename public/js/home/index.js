@@ -2,16 +2,14 @@ $(document).ready(function () {
     setCalculate();
 
     function setCalculate() {
-        setTextBox("#monedaIn", {
+        setNumberBox("#monedaIn", {
             name: "moneda_in",
             showClearButton: true,
-            mode: "number",
         });
 
-        setTextBox("#monedaOut", {
+        setNumberBox("#monedaOut", {
             name: "moneda_out",
             showClearButton: true,
-            mode: "number",
         });
     }
 });

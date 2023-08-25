@@ -236,7 +236,7 @@ $(document).ready(function () {
                         sendtransPeruForm(selectedItem.key);
                     }
                     tipoMoneda = e;
-                    var monedaInput = $("#moneda_b_transPeruForm").dxTextBox(
+                    var monedaInput = $("#moneda_b_transPeruForm").dxNumberBox(
                         "instance"
                     );
                     $("#valor_b_transPeruForm").html(null);
@@ -253,7 +253,7 @@ $(document).ready(function () {
             ]
         );
 
-        setTextBox(
+        setNumberBox(
             "#moneda_b_transPeruForm",
             {
                 placeholder: "Ingrese un valor",
@@ -263,7 +263,6 @@ $(document).ready(function () {
                 showSpinButtons: true,
                 min: 0,
                 value: null,
-                mode: "number",
                 onKeyUp: function (e) {
                     devFormatoMoneda(tipoMoneda.value, e.event.target.value)
                         .then((response) => {

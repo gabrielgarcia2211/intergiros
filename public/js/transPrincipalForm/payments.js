@@ -29,12 +29,11 @@ function getPaypalContent(key) {
 }
 
 function getPaypalButtons(key, gridSpaces) {
-    setTextBox(
+    setNumberBox(
         "#monto_enviar_d_form1",
         {
             name: "monto_enviar_d_form1",
             placeholder: "$ MONTO",
-            mode: "number",
             onKeyUp: function (e) {
                 let value = e.event.target.value;
                 if (value < 5) {
@@ -76,13 +75,11 @@ function getPaypalButtons(key, gridSpaces) {
 
     setTextBox("#monto_pagar_d_form1", {
         name: "monto_pagar_d_form1",
-        mode: "float",
         readOnly: true,
     });
 
     setTextBox("#monto_recibir_d_form1", {
         name: "monto_recibir_d_form1",
-        mode: "float",
         readOnly: true,
     });
 
@@ -163,12 +160,11 @@ function getSkrillContent(key) {
 }
 
 function getSkrillButtons(key, gridSpaces) {
-    setTextBox(
+    setNumberBox(
         "#monto_enviar_d_form1",
         {
             name: "monto_enviar_d_form1",
             placeholder: "$ MONTO",
-            mode: "number",
             onKeyUp: function (e) {
                 let value = e.event.target.value;
                 if (value < 5) {
@@ -210,13 +206,11 @@ function getSkrillButtons(key, gridSpaces) {
 
     setTextBox("#monto_pagar_d_form1", {
         name: "monto_pagar_d_form1",
-        mode: "float",
         readOnly: true,
     });
 
     setTextBox("#monto_recibir_d_form1", {
         name: "monto_recibir_d_form1",
-        mode: "float",
         readOnly: true,
     });
 
@@ -301,12 +295,11 @@ function getBitcoinContent(key) {
 }
 
 function getBitcoinButtons(key, gridSpaces) {
-    setTextBox(
+    setNumberBox(
         "#monto_enviar_d_form1",
         {
             name: "monto_enviar_d_form1",
             placeholder: "$ MONTO",
-            mode: "number",
             onKeyUp: function (e) {
                 let value = e.event.target.value;
                 if (value < 5) {
@@ -348,13 +341,11 @@ function getBitcoinButtons(key, gridSpaces) {
 
     setTextBox("#monto_pagar_d_form1", {
         name: "monto_pagar_d_form1",
-        mode: "float",
         readOnly: true,
     });
 
     setTextBox("#monto_recibir_d_form1", {
         name: "monto_recibir_d_form1",
-        mode: "float",
         readOnly: true,
     });
 
@@ -444,12 +435,11 @@ function getTehtherContent(key) {
 }
 
 function getTehtherButtons(key, gridSpaces) {
-    setTextBox(
+    setNumberBox(
         "#monto_enviar_d_form1",
         {
             name: "monto_enviar_d_form1",
             placeholder: "$ MONTO",
-            mode: "number",
             onKeyUp: function (e) {
                 let value = e.event.target.value;
                 if (value < 5) {
@@ -491,13 +481,11 @@ function getTehtherButtons(key, gridSpaces) {
 
     setTextBox("#monto_pagar_d_form1", {
         name: "monto_pagar_d_form1",
-        mode: "float",
         readOnly: true,
     });
 
     setTextBox("#monto_recibir_d_form1", {
         name: "monto_recibir_d_form1",
-        mode: "float",
         readOnly: true,
     });
 

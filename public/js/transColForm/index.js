@@ -270,12 +270,11 @@ $(document).ready(function () {
             ]
         );
 
-        setTextBox(
+        setNumberBox(
             "#monto_enviar_d_transColForm",
             {
                 name: "monto_enviar_d_transColForm",
                 placeholder: "$ MONTO",
-                mode: "number",
                 onKeyUp: function (e) {
                     let value = e.event.target.value;
                     if (value < 10000) {

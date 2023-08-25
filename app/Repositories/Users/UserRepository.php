@@ -9,7 +9,7 @@ class UserRepository
     public static function create($data)
     {
         $user = User::create($data);
-        $user->assignRole('admin');
+        $user->assignRole('cliente');
         return $user;
     }
 

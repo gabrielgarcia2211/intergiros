@@ -3,6 +3,7 @@
 namespace App\Repositories\Tipo;
 
 use App\Models\Tipos\TasaCambio;
+use Illuminate\Support\Facades\Log;
 
 
 class TasaCambioRepository

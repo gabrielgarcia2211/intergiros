@@ -99,7 +99,7 @@
                         <li>Se reembolsará el dinero recibido en caso de que el número de documento de identidad colocado en
                             el formulario de pago no coincida al del titular de la cuenta PayPal desde la que se realiza el
                             pago.</li><br>
-                        <li>No se realizarán reembolsos por parte de {site} si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>
@@ -189,7 +189,7 @@
                             nuestras redes sociales una vez reciba el correo en notificación de retención para informar que
                             desea el reembolso del dinero.
                         </li><br>
-                        <li>No se realizarán reembolsos por parte de {site} si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>
@@ -271,7 +271,7 @@
                     <ul class="item">
                         <li>Nuestros clientes en general tendrán opción de devolución del dinero cuando exista una falla o
                             demora mayor a la indicada en nuestras normativas.</li><br>
-                        <li>No se realizarán reembolsos por parte de {site} si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>
@@ -291,7 +291,7 @@
                             de nuestras redes sociales la cuenta en Bolívares o la cuenta PayPal a la que puede realizar el
                             pago en ese momento. Seguido de esto proceda a llenar el formulario adjuntando la captura del
                             pago que ha hecho (Para pagos PayPal adjuntar la captura del detalle de la transacción). Y por
-                            último deberá enviar los accesos de su cuenta al correo atencionalcliente@{site}.com . Al ser
+                            último deberá enviar los accesos de su cuenta al correo atencionalcliente@INTERGIROS.com . Al ser
                             enviado el formulario se le asignará un ID de Solicitud que deberá guardar en caso de cualquier
                             consulta o reclamo.</li><br>
                         <br>
@@ -323,7 +323,7 @@
                     <ul class="item">
                         <li>Nuestros clientes en general tendrán opción de devolución del dinero cuando exista una falla o
                             demora mayor a la indicada en nuestras normativas.</li><br>
-                        <li>No se realizarán reembolsos por parte de {site} si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>
@@ -399,7 +399,7 @@
                     <ul class="item">
                         <li>Nuestros clientes en general tendrán opción de devolución del dinero cuando exista una falla o
                             demora mayor a la indicada en nuestras normativas.</li><br>
-                        <li>No se realizarán reembolsos por parte de {site} si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>
@@ -474,7 +474,7 @@
                     <ul class="item">
                         <li>Nuestros clientes en general tendrán opción de devolución del dinero cuando exista una falla o
                             demora mayor a la indicada en nuestras normativas.</li><br>
-                        <li>No se realizarán reembolsos por parte de {site} si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>
@@ -555,7 +555,7 @@
                     <ul class="item">
                         <li>Nuestros clientes en general tendrán opción de devolución del dinero cuando exista una falla o
                             demora mayor a la indicada en nuestras normativas.</li><br>
-                        <li>No se realizarán reembolsos por parte de {site} si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>

@@ -12,15 +12,15 @@
                                     class="icon fa-sharp fa-solid fa-money-bill"></i>
                             </li>
                             <li>
-                                <a href="#recarga" data-toggle="tab">Recarga de Saldo Paypal</a><i
+                                <a href="#recarga_off" data-toggle="tab_off">Recarga de Saldo Paypal</a><i
                                     class="icon fa-brands fa-paypal"></i>
                             </li>
                             <li>
-                                <a href="#recarga_skirll" data-toggle="tab">Recarga de Saldo Skirll</a><i
+                                <a href="#recarga_skirll_off" data-toggle="tab_off">Recarga de Saldo Skirll</a><i
                                     class="icon fa-solid fa-dollar-sign"></i>
                             </li>
                             <li>
-                                <a href="#recarga_bolivares" data-toggle="tab">Compramos tus Bolivares</a><i
+                                <a href="#recarga_bolivares_off" data-toggle="tab_off">Compramos tus Bolivares</a><i
                                     class="icon fa-sharp fa-solid fa-money-bill"></i>
                             </li>
                         </ul>

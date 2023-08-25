@@ -2,8 +2,9 @@
 
 namespace App\Models\Tipos;
 
-use App\Models\Formulario;
+
 use App\Models\Tipos\TipoEntidad;
+use App\Models\Formularios\Formulario;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Formularios\TipoFormulario;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -29,7 +30,7 @@ class TasaCambio extends Model
 
     public function tipo_formulario()
     {
-        return $this->belongsTo(TipoFormulario::class);
+        return $this->belongsTo(TipoFormulario::class, 'id_tipo_formulario');
     }
 
     public function tipo_entidad()
