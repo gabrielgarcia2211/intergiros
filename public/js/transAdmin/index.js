@@ -25,92 +25,6 @@ $(document).ready(function () {
                 },
                 columns: [
                     {
-                        dataField: "nombre_beneficiario",
-                        caption: "Nombre Beneficiario",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "cedula_beneficiario",
-                        caption: "Cedula Beneficiario",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "telefono_beneficiario",
-                        caption: "Telefono Beneficiario",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "created_at",
-                        caption: "Creado",
-                        alignment: "center",
-                        allowFiltering: false,
-                    },
-                    {
-                        dataField: "nro_cuenta",
-                        caption: "Nro Cuenta",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "user.name",
-                        caption: "Nombre del Depositante",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "user.identificacion",
-                        caption: "Cedula del Depositante",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "user.telefono",
-                        caption: "Telefono del Depositante",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "user.email",
-                        caption: "Correo del Depositante",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "tipo_persona",
-                        caption: "Tipo Persona",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "tipo_cuenta",
-                        caption: "Tipo de Cuenta",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "monto_enviar",
-                        caption: "Monto a Enviar",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "email_comprobante",
-                        caption: "Email Comprobante",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "pais",
-                        caption: "Pais",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "tipo_moneda.tipo",
-                        caption: "Tipo Moneda",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "tipo_entidad.descripcion",
-                        caption: "Tipo Entidad",
-                        alignment: "center",
-                    },
-                    {
-                        dataField: "tipo_formulario.descripcion",
-                        caption: "Tipo Formulario",
-                        alignment: "center",
-                    },
-                    {
                         dataField: "id_estado",
                         caption: "Estado",
                         alignment: "center",
@@ -157,7 +71,11 @@ $(document).ready(function () {
 
                             $button.on("click", function () {
                                 popupCheckForm.show();
-                                setStatus(estado, dataForm);
+                                setStatus(
+                                    estado,
+                                    dataForm,
+                                    options.data.archivo
+                                );
                             });
                         },
                     },
@@ -247,6 +165,97 @@ $(document).ready(function () {
                             });
                         },
                     },
+                    {
+                        dataField: "nombre_beneficiario",
+                        caption: "Nombre Beneficiario",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "cedula_beneficiario",
+                        caption: "Cedula Beneficiario",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "telefono_beneficiario",
+                        caption: "Telefono Beneficiario",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "created_at",
+                        caption: "Creado",
+                        alignment: "center",
+                        allowFiltering: false,
+                    },
+                    {
+                        dataField: "nro_cuenta",
+                        caption: "Nro Cuenta",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "user.name",
+                        caption: "Nombre del Depositante",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "user.identificacion",
+                        caption: "Cedula del Depositante",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "user.telefono",
+                        caption: "Telefono del Depositante",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "user.email",
+                        caption: "Correo del Depositante",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "tipo_persona",
+                        caption: "Tipo Persona",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "tipo_cuenta",
+                        caption: "Tipo de Cuenta",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "monto_enviar",
+                        caption: "Monto de Envio",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "monto_convertido",
+                        caption: "Monto a Enviar",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "email_comprobante",
+                        caption: "Email Comprobante",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "pais",
+                        caption: "Pais",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "tipo_moneda.tipo",
+                        caption: "Tipo Moneda",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "tipo_entidad.descripcion",
+                        caption: "Tipo Entidad",
+                        alignment: "center",
+                    },
+                    {
+                        dataField: "tipo_formulario.descripcion",
+                        caption: "Tipo Formulario",
+                        alignment: "center",
+                    },
                 ],
                 paging: {
                     pageSize: 10,
@@ -306,8 +315,17 @@ $(document).ready(function () {
         showCloseButton: true,
     });
 
-    async function setStatus(status, dataForm) {
+    async function setStatus(status, dataForm, archivo) {
         const listStatus = await getStatusForms();
+
+        if (archivo === null) {
+            listStatus.splice(2, 1);
+        }
+
+        let statusPeticion = "";
+
+        statusPeticion = listStatus.find((item) => item.descripcion === status);
+
         setSelectBox(
             "#estadoGestion",
             {
@@ -317,8 +335,7 @@ $(document).ready(function () {
                 }),
                 displayExpr: "descripcion",
                 valueExpr: "id",
-                value: listStatus.find((item) => item.descripcion === status)
-                    .id,
+                value: statusPeticion ? statusPeticion.id : "",
                 name: "id_estado",
             },
             [

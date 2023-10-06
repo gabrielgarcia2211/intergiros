@@ -7,6 +7,7 @@ var tipoMoneda;
 var isTerminosForm;
 var datosUsuario = JSON.parse(localStorage.getItem("usuario"));
 var datosBeneficiario = JSON.parse(localStorage.getItem("beneficiario"));
+var montoRecibirTransPeruForm = "";
 
 $("#label_movil_b").hide();
 $("#group-view-moneda").hide();
@@ -266,6 +267,7 @@ $(document).ready(function () {
                 onKeyUp: function (e) {
                     devFormatoMoneda(tipoMoneda.value, e.event.target.value)
                         .then((response) => {
+                            montoRecibirTransPeruForm = response.data.monto_a_recibir;
                             $("#valor_b_transPeruForm").html(
                                 response.data.monto_a_recibir
                             );
@@ -487,6 +489,7 @@ function sendtransPeruForm(key) {
         var formData = new FormData(formulario);
         formData.append("tasa", key);
         formData.append("id_moneda", "Bolivar");
+        formData.append("monto_convertido", montoRecibirTransPeruForm);
 
         if (!isTerminosForm) {
             showMessageText(

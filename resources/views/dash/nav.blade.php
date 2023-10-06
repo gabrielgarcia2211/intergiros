@@ -1,6 +1,6 @@
 <div class="navbar navbar-fixed-top custom-navbar" role="navigation" style="padding-bottom: 0px;">
     <div>
-        <a href="#" class="navbar-brand" style="padding-top: 10px;"><img src="" width="100px"
+        <a href="#" class="navbar-brand" style="padding-top: 10px;"><img src="{{ asset('template/images/INTERRAPPI.png') }}" width="100px"
                 height="40px" /></a>
         <img class="infoHeader" src="{{ asset('template/icon/clock.svg') }}" style="margin-left: 0px;" width="20px" />
         &nbsp;

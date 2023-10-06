@@ -30,6 +30,7 @@ class FormularioSeeder extends Seeder
                 'tipo_persona' => 'Natural', // O 'Jurídica'
                 'tipo_cuenta' => 'Ahorros', // O 'Corriente'
                 'monto_enviar' => rand(100, 1000),
+                'monto_convertido' => rand(100, 1000),
                 'imagen_comprobante' => 'imagen' . ($i + 1) . '.jpg',
                 'terminos_comprobante' => true,
                 'email_comprobante' => 'correo' . ($i + 1) . '@ejemplo.com',

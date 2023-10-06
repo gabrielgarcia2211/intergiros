@@ -19,6 +19,7 @@ function mapForm($datos)
             'tipo_persona' => $datos['tipo_persona_form1'],
             'tipo_cuenta' => $datos['tipo_cuenta_form1'],
             'monto_enviar' => $datos['monto_enviar_d_form1'],
+            'monto_convertido' => $datos['monto_convertido'],
             'terminos_comprobante' => true,
             'pais' => $datos['pais_d_form1'],
             // Datos de relacion
@@ -43,6 +44,7 @@ function mapForm($datos)
             'tipo_persona' => $datos['tipo_persona_transPeruForm'],
             'tipo_cuenta' => $datos['tipo_cuenta_transPeruForm'],
             'monto_enviar' => $datos['moneda_b_transPeruForm'],
+            'monto_convertido' => $datos['monto_convertido'],
             'terminos_comprobante' => true,
             'pais' => (isset($datos['pais_d_transPeruForm'])) ? $datos['pais_d_transPeruForm'] : null,
             // Datos de relacion
@@ -67,6 +69,7 @@ function mapForm($datos)
             'tipo_persona' => $datos['radio_type_transColForm'],
             'tipo_cuenta' => $datos['radio_label_transColForm'],
             'monto_enviar' => $datos['monto_enviar_d_transColForm'],
+            'monto_convertido' => $datos['monto_convertido'],
             'terminos_comprobante' => true,
             'pais' => (isset($datos['pais_d_transColForm'])) ? $datos['pais_d_transColForm'] : null,
             // Datos de relacion

@@ -28,6 +28,7 @@ class Formulario extends Model
         'tipo_persona',
         'tipo_cuenta',
         'monto_enviar',
+        'monto_convertido',
         'imagen_comprobante',
         'terminos_comprobante',
         'email_comprobante',

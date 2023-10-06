@@ -462,6 +462,11 @@ function sendForm1(key) {
             var formData = new FormData(formulario);
             formData.append("tasa", key);
             formData.append("id_moneda", "Bolivar");
+            formData.append(
+                "monto_convertido",
+                $("[name='monto_recibir_d_form1']").val()
+            );
+
             if (!isTerminosForm1) {
                 showMessageText(
                     "Debe aceptar los terminos y condiciones",

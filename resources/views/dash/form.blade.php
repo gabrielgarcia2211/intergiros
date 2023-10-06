@@ -623,7 +623,7 @@
                                                 servicio, es importante que realice la consulta para confirmar
                                                 la disponibilidad de la cuenta.</b>
                                             Nos encuentra en Facebook o Instagram como <b
-                                                style="background: rgb(60, 235, 60); color: white;">@intergiros.oficial.</b>
+                                                style="background: rgb(60, 235, 60); color: white;">@INTERRAPPI.oficial.</b>
                                         </p>
                                     </div>
                                     <div class="col-sm-6">

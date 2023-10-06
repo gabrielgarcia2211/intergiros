@@ -94,12 +94,12 @@
                         <li>Nuestros clientes en general tendrán opción de devolución del dinero cuando exista una falla o
                             demora mayor a la indicada en nuestras normativas.</li><br>
                         <li>Se reembolsará el dinero recibido en caso de que la cuenta PayPal de pago colocada en el
-                            Formulario principal de Intergiros no coincida con la indicada en el formulario de pago o no
+                            Formulario principal de INTERRAPPI no coincida con la indicada en el formulario de pago o no
                             corresponda a la cuenta PayPal desde la que se ha realizado el pago.</li><br>
                         <li>Se reembolsará el dinero recibido en caso de que el número de documento de identidad colocado en
                             el formulario de pago no coincida al del titular de la cuenta PayPal desde la que se realiza el
                             pago.</li><br>
-                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERRAPPI si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>
@@ -189,7 +189,7 @@
                             nuestras redes sociales una vez reciba el correo en notificación de retención para informar que
                             desea el reembolso del dinero.
                         </li><br>
-                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERRAPPI si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>
@@ -271,7 +271,7 @@
                     <ul class="item">
                         <li>Nuestros clientes en general tendrán opción de devolución del dinero cuando exista una falla o
                             demora mayor a la indicada en nuestras normativas.</li><br>
-                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERRAPPI si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>
@@ -291,7 +291,7 @@
                             de nuestras redes sociales la cuenta en Bolívares o la cuenta PayPal a la que puede realizar el
                             pago en ese momento. Seguido de esto proceda a llenar el formulario adjuntando la captura del
                             pago que ha hecho (Para pagos PayPal adjuntar la captura del detalle de la transacción). Y por
-                            último deberá enviar los accesos de su cuenta al correo atencionalcliente@INTERGIROS.com . Al ser
+                            último deberá enviar los accesos de su cuenta al correo atencionalcliente@INTERRAPPI.com . Al ser
                             enviado el formulario se le asignará un ID de Solicitud que deberá guardar en caso de cualquier
                             consulta o reclamo.</li><br>
                         <br>
@@ -323,7 +323,7 @@
                     <ul class="item">
                         <li>Nuestros clientes en general tendrán opción de devolución del dinero cuando exista una falla o
                             demora mayor a la indicada en nuestras normativas.</li><br>
-                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERRAPPI si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>
@@ -399,7 +399,7 @@
                     <ul class="item">
                         <li>Nuestros clientes en general tendrán opción de devolución del dinero cuando exista una falla o
                             demora mayor a la indicada en nuestras normativas.</li><br>
-                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERRAPPI si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>
@@ -450,7 +450,7 @@
                             momento de ser recibida en nuestro sistema. Es realizada en un intervalo de tiempo máximo de 8
                             horas laborables.</li><br>
                         <li><b>Efectividad de la transacción: </b>inmediata. </li><br>
-                        <li><b>Proveniencia de los fondos: </b>las recargas realizadas por Intergiros son efectuadas a
+                        <li><b>Proveniencia de los fondos: </b>las recargas realizadas por INTERRAPPI son efectuadas a
                             través de fondos provenientes de pagos recibidos de clientes. Es decir, no controlamos que los
                             fondos de nuestros clientes provengan de pagos recibidos de Skrill a Skrill o recargas de saldo
                             desde Tarjetas de Crédito. Si usted solicita una recarga, estará aceptando recibir los fondos
@@ -474,7 +474,7 @@
                     <ul class="item">
                         <li>Nuestros clientes en general tendrán opción de devolución del dinero cuando exista una falla o
                             demora mayor a la indicada en nuestras normativas.</li><br>
-                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERRAPPI si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>
@@ -555,7 +555,7 @@
                     <ul class="item">
                         <li>Nuestros clientes en general tendrán opción de devolución del dinero cuando exista una falla o
                             demora mayor a la indicada en nuestras normativas.</li><br>
-                        <li>No se realizarán reembolsos por parte de INTERGIROS si el cliente luego de realizar la solicitud
+                        <li>No se realizarán reembolsos por parte de INTERRAPPI si el cliente luego de realizar la solicitud
                             desea que la misma ya no sea realizada o una vez procesada la solicitud, desea devolver el
                             dinero.</li>
                     </ul>

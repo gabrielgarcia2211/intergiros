@@ -5,6 +5,7 @@ var isFormKey = {
 var isTerminosForm = false;
 var datosUsuario = JSON.parse(localStorage.getItem("usuario"));
 var datosBeneficiario = JSON.parse(localStorage.getItem("beneficiario"));
+var montoRecibirTransColForm = "";
 
 $(document).ready(function () {
     initTransColForm();
@@ -282,6 +283,7 @@ $(document).ready(function () {
                     }
                     devFormatoMoneda(isFormKey.key, value)
                         .then((response) => {
+                            montoRecibirTransColForm = response.data.monto_a_recibir;
                             $("#conversion_transColForm").html(
                                 "$" + response.data.monto_a_recibir
                             );
@@ -426,6 +428,7 @@ function sendtransColForm(key) {
         var formData = new FormData(formulario);
         formData.append("tasa", key);
         formData.append("id_moneda", "Bolivar");
+        formData.append("monto_convertido", montoRecibirTransColForm);
 
         if (!isTerminosForm) {
             showMessageText(

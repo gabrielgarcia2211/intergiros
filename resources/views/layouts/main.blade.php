@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>INTERGIROS</title>
+    <title>INTERRAPPI</title>
     <meta name="description" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" type="image/x-icon" href="">

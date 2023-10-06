@@ -23,6 +23,7 @@ class CreateFormularioTable extends Migration
             $table->string('tipo_persona', 10);
             $table->string('tipo_cuenta', 10);
             $table->string('monto_enviar');
+            $table->string('monto_convertido');
             $table->string('imagen_comprobante', 120)->nullable();
             $table->string('terminos_comprobante', 120);
             $table->string('email_comprobante', 120)->nullable();

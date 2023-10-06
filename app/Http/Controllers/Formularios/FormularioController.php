@@ -76,6 +76,7 @@ class FormularioController extends Controller
             }
 
             $data = FormularioRepository::create($response);
+            // Enviar Correo
             return Response::sendResponse($data, 'Registro guardado con exito.');
         } catch (\Exception $ex) {
             Log::debug($ex->getMessage());
@@ -106,8 +107,10 @@ class FormularioController extends Controller
                 unset($response['is_delete']);
             }
             $data = FormularioRepository::update($Formulario, $response);
+            // Enviar Correo
             return Response::sendResponse($data, 'Registro actualizado con exito.');
         } catch (\Exception $ex) {
+            Log::debug($ex->getMessage());
             if (isset($path)) {
                 $this->fileService->deleteFile($file);
             }

@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Intergiros<sup> 1.0</sup></div>
+        <div class="sidebar-brand-text mx-3">INTERRAPPI<sup> 1.0</sup></div>
     </a>
 
     <hr class="sidebar-divider my-0">

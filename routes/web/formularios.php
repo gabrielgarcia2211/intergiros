@@ -5,9 +5,6 @@ use App\Http\Controllers\Formularios\FormularioController;
 
 
 Route::middleware(['auth'])->prefix('formulario')->group(function () {
-
-   
-
     Route::get('', [FormularioController::class, 'index'])->name('formulario');
     Route::get('/list/user', [FormularioController::class, 'getFormulariosUser'])->name('formulario.list.user');
     Route::post('/store', [FormularioController::class, 'store'])->name('formulario.post');

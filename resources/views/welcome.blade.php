@@ -16,7 +16,7 @@
     <!-- =========================
             INTRO SECTION
         ============================== -->
-    {{-- <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="2000" id="bs-carousel">
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="2000" id="bs-carousel">
         <!-- Overlay -->
         <div class="overlay"></div>
 
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div> 
-    </div> --}}
+    </div>
 
     <!-- =========================
             OVERVIEW SECTION
@@ -178,7 +178,7 @@
         ============================== -->
     <section id="contact" class="parallax-section">
         <div class="container" data-wow-delay="0.6s">
-            <p class="elegirIntergiros">¿POR QUÉ ELEGIR INTERGIROS?</p>
+            <p class="elegirIntergiros">¿POR QUÉ ELEGIR INTERRAPPI?</p>
             <center>
                 <p><b> Dos razones importantes para elegirnos.</b></p>
             </center>

@@ -12,17 +12,16 @@
                 <ul class="social-icon">
                     <li>
                         <img src="{{ asset('template/images/face.png') }}" width="40px" />
-                        <a href=""></a>
+                        <a href="https://www.facebook.com/Interrappi.co">@interrappi.co</a>
                     </li>&nbsp; &nbsp;
                     <li>
                         <img src="{{ asset('template/images/inst.png') }}" width="40px" />
-                        <a href=""></a>
+                        <a href="https://www.instagram.com/interrappi/">@interrappi.co</a>
                     </li>&nbsp; &nbsp;
                     <li>
                         <img src="{{ asset('template/images/Youtube_logo.png') }}" width="40px" />
-                        <a href=""</a>
+                        <a href="https://www.youtube.com/@Interrappi">@interrappi</a>
                     </li>
-
                 </ul>
             </div>
         </div>

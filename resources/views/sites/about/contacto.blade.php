@@ -22,23 +22,22 @@
     <center>
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-sm-12">
+                <div class="col-md-12 col-sm-12 mt-5">
                     <ul class="social-icon">
                         <li>
                             <img src="{{ asset('template/images/face.png') }}" width="40px" />
-                            <a href=""></a>
-                        </li>
-                        &nbsp; &nbsp;
+                            <a href="https://www.facebook.com/Interrappi.co">@interrappi.co</a>
+                        </li>&nbsp; &nbsp;
                         <li>
                             <img src="{{ asset('template/images/inst.png') }}" width="40px" />
-                            <a href=""></a>
-                        </li>
-                        &nbsp; &nbsp;
+                            <a href="https://www.instagram.com/interrappi/">@interrappi.co</a>
+                        </li>&nbsp; &nbsp;
                         <li>
                             <img src="{{ asset('template/images/Youtube_logo.png') }}" width="40px" />
-                            <a href=""></a>
+                            <a href="https://www.youtube.com/@Interrappi">@interrappi</a>
                         </li>
                     </ul>
+                </div>
                 </div>
             </div>
         </div>

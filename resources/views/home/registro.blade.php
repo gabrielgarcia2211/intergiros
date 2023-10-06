@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7 py-5">
-                <h3><strong>Regístrate en Intergiros</strong></h3>
+                <h3><strong>Regístrate en INTERRAPPI</strong></h3>
                 <br>
                 <form id="camposRegistro" class="form-signup" method="POST" action="{{ route('users.store') }}">
                     @csrf
