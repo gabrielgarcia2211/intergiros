@@ -29,6 +29,7 @@
     <div id="app">
         <main>
             <div id="app">
+                <div id="loadpanel"></div>
                 @yield('content')
             </div>
         </main>

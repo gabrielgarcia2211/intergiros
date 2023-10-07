@@ -1,6 +1,10 @@
+var popupPanel = "";
+
 $(document).ready(function () {
     initForm();
     getCantForms();
+
+    popupPanel = loadPanel("#loadpanel");
 
     function initForm() {
         dataGrid = $("#dataGrid")
@@ -427,17 +431,21 @@ $(document).ready(function () {
         $("#gestionForm").off("submit");
         $("#gestionForm").on("submit", function (e) {
             e.preventDefault();
+            popupPanel.show();
             var formulario = $("#gestionForm")[0];
             var formData = new FormData(formulario);
+            formData.append("notification", true);
             axios
                 .post("/formulario/update/" + key, formData)
                 .then((response) => {
                     $("#dataGrid").dxDataGrid("instance").refresh();
                     showMessageText(response.data.message);
                     getCantForms();
+                    popupPanel.hide();
                 })
                 .catch((error) => {
                     handleErrors(error);
+                    popupPanel.hide();
                 });
         });
     }

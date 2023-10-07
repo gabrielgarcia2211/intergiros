@@ -8,12 +8,15 @@ var isTerminosForm;
 var datosUsuario = JSON.parse(localStorage.getItem("usuario"));
 var datosBeneficiario = JSON.parse(localStorage.getItem("beneficiario"));
 var montoRecibirTransPeruForm = "";
+var popupPanel = "";
 
 $("#label_movil_b").hide();
 $("#group-view-moneda").hide();
 
 $(document).ready(function () {
     initTransPeruForm();
+
+    popupPanel = loadPanel("#loadpanel");
 
     function initTransPeruForm() {
         // DATOS DEL BENEFICIARIO
@@ -485,6 +488,7 @@ function sendtransPeruForm(key) {
     $("#paymentstransPeruForm").off("submit");
     $("#paymentstransPeruForm").on("submit", function (e) {
         e.preventDefault();
+        popupPanel.show();
         var formulario = $("#paymentstransPeruForm")[0];
         var formData = new FormData(formulario);
         formData.append("tasa", key);
@@ -496,15 +500,18 @@ function sendtransPeruForm(key) {
                 "Debe aceptar los terminos y condiciones",
                 "warning"
             );
+            popupPanel.hide();
             return;
         }
         axios
             .post("/formulario/store/", formData)
             .then((response) => {
                 showMessageText(response.data.message);
+                popupPanel.hide();
             })
             .catch((error) => {
                 handleErrors(error);
+                popupPanel.hide();
             });
     });
 }

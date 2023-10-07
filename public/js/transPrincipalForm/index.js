@@ -7,11 +7,14 @@ var isTerminosForm1 = false;
 var initFields = false;
 var datosUsuario = JSON.parse(localStorage.getItem("usuario"));
 var datosBeneficiario = JSON.parse(localStorage.getItem("beneficiario"));
+var popupPanel = "";
 
 $("#payments-view").hide();
 
 $(document).ready(function () {
     initForm1();
+
+    popupPanel = loadPanel("#loadpanel");
 
     function initForm1() {
         // DATOS DEL BENEFICIARIO
@@ -458,6 +461,7 @@ function sendForm1(key) {
         .off("submit")
         .on("submit", function (e) {
             e.preventDefault();
+            popupPanel.show();
             var formulario = $("#paymentsForm1")[0];
             var formData = new FormData(formulario);
             formData.append("tasa", key);
@@ -472,15 +476,18 @@ function sendForm1(key) {
                     "Debe aceptar los terminos y condiciones",
                     "warning"
                 );
+                popupPanel.hide();
                 return;
             }
             axios
                 .post("/formulario/store/", formData)
                 .then((response) => {
                     showMessageText(response.data.message);
+                    popupPanel.hide();
                 })
                 .catch((error) => {
                     handleErrors(error);
+                    popupPanel.hide();
                 });
         });
 }

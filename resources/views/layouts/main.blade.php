@@ -38,8 +38,8 @@
     <div id="app">
         <main class="py-4">
             <div id="app">
+                <div id="loadpanel"></div>
                 @yield('content')
-
             </div>
         </main>
     </div>

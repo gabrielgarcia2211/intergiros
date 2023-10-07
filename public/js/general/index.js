@@ -1,7 +1,10 @@
 function setTextBox(element = "", config = {}, validations = []) {
-    $(element).dxTextBox(config).dxValidator({
-        validationRules: validations,
-    }).dxTextBox("instance");
+    $(element)
+        .dxTextBox(config)
+        .dxValidator({
+            validationRules: validations,
+        })
+        .dxTextBox("instance");
 }
 
 function setTagBox(element = "", config = {}, validations = []) {
@@ -11,9 +14,12 @@ function setTagBox(element = "", config = {}, validations = []) {
 }
 
 function setSelectBox(element = "", config = {}, validations = []) {
-    $(element).dxSelectBox(config).dxValidator({
-        validationRules: validations,
-    }).dxSelectBox("instance");
+    $(element)
+        .dxSelectBox(config)
+        .dxValidator({
+            validationRules: validations,
+        })
+        .dxSelectBox("instance");
 }
 
 function setRadioGroup(element = "", config = {}, validations = []) {
@@ -23,14 +29,17 @@ function setRadioGroup(element = "", config = {}, validations = []) {
 }
 
 function setCheckBox(element = "", config = {}, validations = []) {
-    $(element).dxCheckBox(config).dxValidator({
-        validationRules: validations,
-    }).dxCheckBox("instance");
+    $(element)
+        .dxCheckBox(config)
+        .dxValidator({
+            validationRules: validations,
+        })
+        .dxCheckBox("instance");
 }
 
 function setFileUploader(element = "", config = {}, validations = []) {
     $(element).dxFileUploader(config).dxValidator({
-        validationRules: validations
+        validationRules: validations,
     });
 }
 
@@ -41,9 +50,12 @@ function setTextArea(element = "", config = {}, validations = []) {
 }
 
 function setNumberBox(element = "", config = {}, validations = []) {
-    $(element).dxNumberBox(config).dxValidator({
-        validationRules: validations,
-    }).dxNumberBox("instance");
+    $(element)
+        .dxNumberBox(config)
+        .dxValidator({
+            validationRules: validations,
+        })
+        .dxNumberBox("instance");
 }
 //END FIELDS
 
@@ -147,7 +159,8 @@ function devFormatoMoneda(key, value) {
         formData.append("tasa", key);
         formData.append("monto", value);
 
-        axios.post("/convertidor/form/tasa", formData)
+        axios
+            .post("/convertidor/form/tasa", formData)
             .then((response) => {
                 resolve(response.data);
             })
@@ -179,3 +192,20 @@ function setFilterFieldsDataGrid(result, callback) {
     return result;
 }
 // END FILTER DATA GRID
+
+// LOAD PANEL
+function loadPanel(id) {
+    return $(id)
+        .dxLoadPanel({
+            shadingColor: "rgba(0,0,0,0.4)",
+            position: { my: "center", at: "center", of: window },
+            visible: false,
+            showIndicator: true,
+            showPane: true,
+            shading: true,
+            hideOnOutsideClick: false,
+            message: 'Cargando, por favor espere...',
+        })
+        .dxLoadPanel("instance");
+}
+// END LOAD PANEL

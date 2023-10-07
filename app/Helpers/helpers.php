@@ -231,3 +231,25 @@ function getQueryValue($operator, $value)
             return $value;
     }
 }
+
+function getColorStatus($estado)
+{
+    switch ($estado) {
+        case "PENDIENTE":
+            $color = "orange";
+            break;
+        case "EN PROCESO":
+            $color = "blue";
+            break;
+        case "ENTREGADO":
+            $color = "green";
+            break;
+        case "CANCELADO":
+            $color = "red";
+            break;
+        default:
+            $color = "gray";
+    }
+
+    return $color;
+}

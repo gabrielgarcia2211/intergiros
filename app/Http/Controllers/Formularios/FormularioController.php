@@ -4,17 +4,20 @@ namespace App\Http\Controllers\Formularios;
 
 use Illuminate\Http\Request;
 use App\Services\FileService;
+use App\Mail\NotificationEmail;
 use App\Models\Tipos\TipoMoneda;
 use App\Exports\FormularioExport;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Formularios\Formulario;
 use App\Repositories\Formulario\FormularioRepository;
 use App\Http\Controllers\ResponseController as Response;
 use App\Http\Requests\Formularios\StoreFormularioRequest;
 use App\Http\Requests\Formularios\UpdateFormularioRequest;
+use App\Models\Tipos\Estado;
 
 class FormularioController extends Controller
 {
@@ -58,6 +61,7 @@ class FormularioController extends Controller
         try {
             $response = mapForm($request->all());
             $tipoPago = mapTasaPay($response['tasa']);
+            $userEmail = Auth::user()->email;
             if (empty($tipoPago)) {
                 return Response::sendError('No esta habilitado el servicio seleccionado', 500);
             }
@@ -76,7 +80,11 @@ class FormularioController extends Controller
             }
 
             $data = FormularioRepository::create($response);
-            // Enviar Correo
+
+            $updatedForm = FormularioRepository::getByID($data->id)->toArray();
+
+            // Enviar Correo - $userEmail
+            Mail::to($userEmail)->send(new NotificationEmail($updatedForm));
             return Response::sendResponse($data, 'Registro guardado con exito.');
         } catch (\Exception $ex) {
             Log::debug($ex->getMessage());
@@ -96,6 +104,7 @@ class FormularioController extends Controller
     {
         try {
             $response = $request->all();
+            $userEmail = Auth::user()->email;
             if (isset($response['is_delete']) && !empty($response['is_delete'])) {
                 if ($response['is_delete'] && empty($response['archivo'])) {
                     $file = basename(Formulario::find($Formulario['id'])->archivo);
@@ -107,7 +116,12 @@ class FormularioController extends Controller
                 unset($response['is_delete']);
             }
             $data = FormularioRepository::update($Formulario, $response);
-            // Enviar Correo
+            if (isset($response['notification'])) {
+                $updatedForm = FormularioRepository::getByID($Formulario->id)->toArray();
+                $updatedForm['color_estado'] = getColorStatus($updatedForm['id_estado']);
+                // Enviar Correo - $userEmail
+                Mail::to($userEmail)->send(new NotificationEmail($updatedForm));
+            }
             return Response::sendResponse($data, 'Registro actualizado con exito.');
         } catch (\Exception $ex) {
             Log::debug($ex->getMessage());

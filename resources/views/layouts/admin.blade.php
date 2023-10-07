@@ -23,6 +23,7 @@
 </head>
 
 <body class="page-top">
+    <div id="loadpanel"></div>
     @yield('content')
     <!-- =========================
         SCRIPTS
