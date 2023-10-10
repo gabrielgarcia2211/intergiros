@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Users\UserSeeder::class);
         $this->call(Tipos\TasaCambioSeeder::class);
         $this->call(Tipos\EstadoSeeder::class);
-        $this->call(Formularios\FormularioSeeder::class);
+        //$this->call(Formularios\FormularioSeeder::class);
     }
 }
