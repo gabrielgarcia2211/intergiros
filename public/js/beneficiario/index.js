@@ -134,7 +134,7 @@ function setBeneficiario() {
     var formData = new FormData(formulario);
 
     axios
-        .post("/beneficiario/store/", formData)
+        .post("/beneficiario/store", formData)
         .then((response) => {
             showMessageText(response.data.message);
             popupBeneficiario.hide();
@@ -247,7 +247,7 @@ async function listBeneficiario() {
 function getBeneficiario() {
     return new Promise(async (resolve, reject) => {
         try {
-            const response = await axios.get("/beneficiario/get/");
+            const response = await axios.get("/beneficiario/get");
             resolve(response.data);
         } catch (error) {
             handleErrors(error);
@@ -284,7 +284,7 @@ function deleteBeneficiario(id) {
 function getUser() {
     return new Promise(async (resolve, reject) => {
         try {
-            const response = await axios.get("/users/get/");
+            const response = await axios.get("/users/get");
             resolve(response.data);
         } catch (error) {
             handleErrors(error);

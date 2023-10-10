@@ -480,7 +480,7 @@ function sendForm1(key) {
                 return;
             }
             axios
-                .post("/formulario/store/", formData)
+                .post("/formulario/store", formData)
                 .then((response) => {
                     showMessageText(response.data.message);
                     popupPanel.hide();

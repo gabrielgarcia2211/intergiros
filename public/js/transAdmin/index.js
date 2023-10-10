@@ -417,7 +417,7 @@ $(document).ready(function () {
         };
 
         axios
-            .post("/formulario/update/" + key, formData, config)
+            .post("/formulario/update" + key, formData, config)
             .then((response) => {
                 $("#dataGrid").dxDataGrid("instance").refresh();
                 showMessageText(response.data.message);
@@ -436,7 +436,7 @@ $(document).ready(function () {
             var formData = new FormData(formulario);
             formData.append("notification", true);
             axios
-                .post("/formulario/update/" + key, formData)
+                .post("/formulario/update" + key, formData)
                 .then((response) => {
                     $("#dataGrid").dxDataGrid("instance").refresh();
                     showMessageText(response.data.message);
