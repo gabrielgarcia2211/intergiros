@@ -82,8 +82,6 @@ class FormularioController extends Controller
             $data = FormularioRepository::create($response);
 
             $updatedForm = FormularioRepository::getByID($data->id)->toArray();
-
-            // Enviar Correo - $userEmail
             Mail::to($userEmail)->send(new NotificationEmail($updatedForm));
             return Response::sendResponse($data, 'Registro guardado con exito.');
         } catch (\Exception $ex) {
@@ -118,7 +116,6 @@ class FormularioController extends Controller
             if (isset($response['notification'])) {
                 $updatedForm = FormularioRepository::getByID($Formulario->id)->toArray();
                 $updatedForm['color_estado'] = getColorStatus($updatedForm['id_estado']);
-                // Enviar Correo - $userEmail
                 Mail::to($updatedForm['user']['email'])->send(new NotificationEmail($updatedForm));
             }
             return Response::sendResponse($data, 'Registro actualizado con exito.');
