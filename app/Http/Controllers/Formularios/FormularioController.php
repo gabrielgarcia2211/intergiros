@@ -119,7 +119,7 @@ class FormularioController extends Controller
                 $updatedForm = FormularioRepository::getByID($Formulario->id)->toArray();
                 $updatedForm['color_estado'] = getColorStatus($updatedForm['id_estado']);
                 // Enviar Correo - $userEmail
-                Mail::to($updatedForm['email'])->send(new NotificationEmail($updatedForm));
+                Mail::to($updatedForm['user']['email'])->send(new NotificationEmail($updatedForm));
             }
             return Response::sendResponse($data, 'Registro actualizado con exito.');
         } catch (\Exception $ex) {
