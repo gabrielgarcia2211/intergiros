@@ -104,7 +104,6 @@ class FormularioController extends Controller
     {
         try {
             $response = $request->all();
-            $userEmail = Auth::user()->email;
             if (isset($response['is_delete']) && !empty($response['is_delete'])) {
                 if ($response['is_delete'] && empty($response['archivo'])) {
                     $file = basename(Formulario::find($Formulario['id'])->archivo);
@@ -120,7 +119,7 @@ class FormularioController extends Controller
                 $updatedForm = FormularioRepository::getByID($Formulario->id)->toArray();
                 $updatedForm['color_estado'] = getColorStatus($updatedForm['id_estado']);
                 // Enviar Correo - $userEmail
-                Mail::to($userEmail)->send(new NotificationEmail($updatedForm));
+                Mail::to($updatedForm['email'])->send(new NotificationEmail($updatedForm));
             }
             return Response::sendResponse($data, 'Registro actualizado con exito.');
         } catch (\Exception $ex) {
