@@ -57,22 +57,7 @@ $(document).ready(function () {
                 class: "icon-custom-select",
             },
             async onClick() {
-                var options = $("#check-cliente").dxButton("instance");
-                var currentIcon = options.option("icon");
-                var newIcon;
-
-                if (currentIcon === "unselectall") {
-                    newIcon = "selectall";
-                    var data = await getUser();
-                    setTextsUsuario(data[0], true);
-                } else {
-                    newIcon = "unselectall";
-                    setTextsUsuario(null, false);
-                }
-
-                options.option({
-                    icon: newIcon,
-                });
+                cleanSelected();
             },
         });
 
@@ -286,7 +271,8 @@ $(document).ready(function () {
                     }
                     devFormatoMoneda(isFormKey.key, value)
                         .then((response) => {
-                            montoRecibirTransColForm = response.data.monto_a_recibir;
+                            montoRecibirTransColForm =
+                                response.data.monto_a_recibir;
                             $("#conversion_transColForm").html(
                                 "$" + response.data.monto_a_recibir
                             );
@@ -370,6 +356,25 @@ $(document).ready(function () {
     }
 });
 
+async function cleanSelected() {
+    var options = $("#check-cliente").dxButton("instance");
+    var currentIcon = options.option("icon");
+    var newIcon;
+
+    if (currentIcon === "unselectall") {
+        newIcon = "selectall";
+        var data = await getUser();
+        setTextsUsuario(data[0], true);
+    } else {
+        newIcon = "unselectall";
+        setTextsUsuario(null, false);
+    }
+
+    options.option({
+        icon: newIcon,
+    });
+}
+
 function setTextsBeneficiario(data, read) {
     $("#nombre_b_transColForm")
         .dxTextBox("instance")
@@ -447,10 +452,31 @@ function sendtransColForm(key) {
             .then((response) => {
                 showMessageText(response.data.message);
                 popupPanel.hide();
+                cleanForm();
             })
             .catch((error) => {
                 handleErrors(error);
                 popupPanel.hide();
             });
     });
+}
+
+function cleanForm() {
+    localStorage.removeItem("beneficiario");
+    setTextsBeneficiario(null, false);
+    cleanSelected();
+    // campos externos
+    $("#banco_b_transColForm").dxSelectBox("instance").option({
+        value: null,
+    });
+    $("#radio_label_transColForm").dxRadioGroup("instance").option({
+        value: null,
+    });
+    $("#radio_type_transColForm").dxRadioGroup("instance").option({
+        value: null,
+    });
+    $("#monto_enviar_d_transColForm").dxNumberBox("instance").option({
+        value: null,
+    });
+    $("#file_b_transColForm").dxFileUploader("instance").reset()
 }

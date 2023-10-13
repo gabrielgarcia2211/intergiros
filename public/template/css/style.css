@@ -993,6 +993,12 @@ Image credits: unsplash.com
 	}
 }
 
+@media (max-width: 770px) {
+    #form_footer {
+        display: none;
+    }
+}
+
 .statusInfo{ 
 	position: relative;
 	top: -80px;

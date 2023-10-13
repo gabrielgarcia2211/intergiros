@@ -60,22 +60,7 @@ $(document).ready(function () {
                 class: "icon-custom-select",
             },
             async onClick() {
-                var options = $("#check-cliente").dxButton("instance");
-                var currentIcon = options.option("icon");
-                var newIcon;
-
-                if (currentIcon === "unselectall") {
-                    newIcon = "selectall";
-                    var data = await getUser();
-                    setTextsUsuario(data[0], true);
-                } else {
-                    newIcon = "unselectall";
-                    setTextsUsuario(null, false);
-                }
-
-                options.option({
-                    icon: newIcon,
-                });
+                cleanSelected();
             },
         });
 
@@ -325,6 +310,25 @@ $(document).ready(function () {
     }
 });
 
+async function cleanSelected() {
+    var options = $("#check-cliente").dxButton("instance");
+    var currentIcon = options.option("icon");
+    var newIcon;
+
+    if (currentIcon === "unselectall") {
+        newIcon = "selectall";
+        var data = await getUser();
+        setTextsUsuario(data[0], true);
+    } else {
+        newIcon = "unselectall";
+        setTextsUsuario(null, false);
+    }
+
+    options.option({
+        icon: newIcon,
+    });
+}
+
 function setTextsBeneficiario(data, read) {
     $("#nombre_b_form1")
         .dxTextBox("instance")
@@ -484,10 +488,36 @@ function sendForm1(key) {
                 .then((response) => {
                     showMessageText(response.data.message);
                     popupPanel.hide();
+                    cleanForm();
                 })
                 .catch((error) => {
                     handleErrors(error);
                     popupPanel.hide();
                 });
         });
+}
+
+function cleanForm() {
+    localStorage.removeItem("beneficiario");
+    setTextsBeneficiario(null, false);
+    cleanSelected();
+    // campos externos
+    $("#banco_b_form1").dxSelectBox("instance").option({
+        value: null,
+    });
+    $("#radio_label_form1").dxRadioGroup("instance").option({
+        value: null,
+    });
+    $("#radio_type_form1").dxRadioGroup("instance").option({
+        value: null,
+    });
+    $("#radio_type_movil").dxRadioGroup("instance").option({
+        value: null,
+    });
+    $("#movil_b_form1").dxNumberBox("instance").option({
+        value: null,
+    });
+    $("#pais_d_form1").dxSelectBox("instance").option({
+        value: null,
+    });
 }

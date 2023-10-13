@@ -377,8 +377,10 @@
     </div>
 
     <!--FOOTER SECTION -->
-    @include('dash.footer')
-
+    <div id="form_footer">
+        @include('dash.footer')
+    </div>
+    
     <!-- Back top -->
     <a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
 @endsection
