@@ -25,7 +25,7 @@
     @include('layouts.dx_css')
 </head>
 
-<body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
+<body data-spy="scroll" data-offset="50" data-target=".navbar-collapse" class="page-home">
     <div id="app">
         <main>
             <div id="app">

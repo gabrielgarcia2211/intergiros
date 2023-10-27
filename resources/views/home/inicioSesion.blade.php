@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="py-5">
-            <h3><strong>¡Te damos la bienvenida a tu cuenta!</strong></h3>
+            <h3><strong style="color:white">¡Te damos la bienvenida a tu cuenta!</strong></h3>
             <br>
             <form id="camposSesion" class="form-signin" method="POST" action="{{ route('login') }}">
                 @csrf
@@ -52,7 +52,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 mt-2" style="text-align: center">
-                        <p>¿No tienes una cuenta? <a href="{{ route('registro') }}">Registrate</a></p>
+                        <p style="color:white">¿No tienes una cuenta? <a href="{{ route('registro') }}">Registrate</a></p>
                     </div>
                 </div>
             </form>
