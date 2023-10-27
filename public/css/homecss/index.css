@@ -10,43 +10,43 @@
     background-image: url("../../img/pc.png");
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: 25% 80%;
+    background-size: 25% 55%;
     height: 100vh;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1500px) {
     .aterrizaje-page {
-        background-size: 30% 75%;
+        background-size: 30% 60%;
     }
 }
 
 @media (max-width: 1000px) {
     .aterrizaje-page {
-        background-size: 35% 70%;
+        background-size: 35% 65%;
     }
 }
 
 @media (max-width: 800px) {
     .aterrizaje-page {
-        background-size: 40% 65%;
+        background-size: 40% 60%;
     }
 }
 
 @media (max-width: 600px) {
     .aterrizaje-page {
-        background-size: 45% 65%;
+        background-size: 45% 50%;
     }
 }
 
 @media (max-width: 400px) {
     .aterrizaje-page {
-        background-size: 50% 60%;
+        background-size: 50% 40%;
     }
 }
 
 @media (max-width: 200px) {
     .aterrizaje-page {
-        background-size: 45% 55%;
+        background-size: 45% 30%;
     }
 }
 
