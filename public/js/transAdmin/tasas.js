@@ -90,7 +90,7 @@ $(document).ready(function () {
             var formData = new FormData(formulario);
 
             axios
-                .post("/tasacambio/update" + key, formData)
+                .post("/tasacambio/update/" + key, formData)
                 .then((response) => {
                     showMessageText(response.data.message);
                     $("#oldTasa").dxNumberBox("instance").dispose();
