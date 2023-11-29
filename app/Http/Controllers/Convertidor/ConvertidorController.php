@@ -50,6 +50,10 @@ class ConvertidorController extends Controller
                 $monto = $request->input('monto');
                 $comision = $monto * $response->valor;
                 return Response::sendResponse(['monto_a_recibir' => number_format($comision, 2, '.', ',')]);
+            } else if ($response->tipo_entidad->descripcion == 'Zinli') {
+                $monto = $request->input('monto');
+                $comision = $monto * $response->valor;
+                return Response::sendResponse(['monto_a_recibir' => number_format($comision, 2, '.', ',')]);
             }
         }
 

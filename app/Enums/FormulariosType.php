@@ -9,6 +9,7 @@ class FormulariosType
         'Skrill' => 'Skrill',
         'Bitcoin' => 'Bitcoin',
         'Tehther' => 'Tehther',
+        'Zinli' => 'Zinli',
     ];
 
     public const TRANS_PERU_OPTIONS = [

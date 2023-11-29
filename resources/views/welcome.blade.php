@@ -111,13 +111,25 @@
                     </div>
                 </div>
 
-                <div class="item wow fadeInUp col-md-3 col-sm-3" data-wow-delay="0.9s">
+                {{-- <div class="item wow fadeInUp col-md-3 col-sm-3" data-wow-delay="0.9s">
                     <div class="speakers-wrapper" style="text-align: center;">
                         <img src="{{ asset('template/images/1.png') }}" class="img-responsive" alt="BITCOIN"
                             style="margin: 0 auto;" />
                         <div class="speakers-thumb">
                             <h3>TASA BITCOIN</h3>
                             <h2>{{ 'US $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', '3')->first())->valor ?? 'N/A') . ' Bs' }}
+                            </h2>
+                        </div>
+                    </div>
+                </div> --}}
+
+                <div class="item wow fadeInUp col-md-3 col-sm-3" data-wow-delay="0.9s">
+                    <div class="speakers-wrapper" style="text-align: center;">
+                        <img src="{{ asset('template/images/zinli.png') }}" class="img-responsive" alt="ZINLI"
+                            style="margin: 0 auto;" />
+                        <div class="speakers-thumb">
+                            <h3>TASA ZINLI</h3>
+                            <h2>{{ 'US $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', '8')->first())->valor ?? 'N/A') . ' Bs' }}
                             </h2>
                         </div>
                     </div>

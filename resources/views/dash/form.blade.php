@@ -152,9 +152,14 @@
                                                         src="{{ asset('template/images/skrill_b.png') }}"
                                                         align="center" /></a>
                                             </div>
-                                            <div class="row">
+                                            {{-- <div class="row">
                                                 <a id="Bitcoin" onclick="capTypePay(id)"><img class="bg-pay"
                                                         src="{{ asset('template/images/bitcoin_b.png') }}"
+                                                        align="center" /></a>
+                                            </div> --}}
+                                            <div class="row">
+                                                <a id="Zinli" onclick="capTypePay(id)"><img class="bg-pay"
+                                                        src="{{ asset('template/images/zinli.png') }}"
                                                         align="center" /></a>
                                             </div>
                                             <div class="row">

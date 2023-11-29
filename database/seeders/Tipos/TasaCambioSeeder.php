@@ -18,7 +18,7 @@ class TasaCambioSeeder extends Seeder
         $tipoFormularioIds = TipoFormulario::pluck('id')->toArray();
         $tipoEntidadIds = TipoEntidad::pluck('id')->toArray();
 
-        for ($i = 0; $i < 7; $i++) {
+        for ($i = 0; $i < 8; $i++) {
             TasaCambio::create([
                 'valor' => rand(1, 100), // Valor de la tasa de cambio
                 'key' =>  $tipoEntidadIds[$i],

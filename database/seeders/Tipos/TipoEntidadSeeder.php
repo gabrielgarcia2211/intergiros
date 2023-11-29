@@ -20,6 +20,7 @@ class TipoEntidadSeeder extends Seeder
             ['descripcion' => 'PeruSol'],
             ['descripcion' => 'PeruDolar'],
             ['descripcion' => 'ColombiaBolivar'],
+            ['descripcion' => 'Zinli'],
         ];
 
         foreach ($tiposEntidad as $tipoEntidad) {

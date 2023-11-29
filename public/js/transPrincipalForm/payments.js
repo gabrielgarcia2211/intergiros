@@ -536,3 +536,142 @@ function getTehtherButtons(key, gridSpaces) {
         useSubmitBehavior: true,
     });
 }
+
+function getZinliContent(key) {
+    if (key !== "Zinli") {
+        return ["", "", ""]; // Retorna un array vacío si el tipo de pago no es "Zinli"
+    }
+
+    var newHtml = `
+        <div class="content">
+            <p>Haz el pago Zinli escaneando el siquiente código QR:</p>
+            <img src="../template/images/pays/QR-Zinli-AR.jpg" style="width: 16%; padding: 10px;">
+            <p>A nombre de: <b>Anagabriela Rujano</b></p>
+            <br>
+            <p style="padding: 4px;background: yellow;text-align: center;color:black">
+            Importante: Al realizar el pago no colocar nada referente a cambio de divisas.
+            <br>
+            Luego de realizar el pago guarda el comprobante para adjuntarlo.</p>
+            <br>
+            <p"><i class="fa-solid fa-image"></i> Subir Comprobante</p>
+            <p style="text-align: left;">Tamaño maximo del archivo: 5.72 MB. | Tipo de archivos permitidos: gif, jpeg, png, jpg | Cantidad maxima de archivo: 1 | Cantidad minima de archivo: 1</p>
+            <hr>
+            <div class="row">
+                <div id="file_b_form1"></div>
+            </div>
+        </div>
+    `;
+
+    var cHtml = `
+        <button type="button" class="btn btn-primary" style="margin-top:20px">
+            Enviar
+        </button>
+    </div>`;
+
+    var infoHtml = "";
+
+    return [newHtml, cHtml, infoHtml];
+}
+
+function getZinliButtons(key, gridSpaces) {
+    setNumberBox(
+        "#monto_enviar_d_form1",
+        {
+            name: "monto_enviar_d_form1",
+            placeholder: "$ MONTO",
+            onKeyUp: function (e) {
+                let value = e.event.target.value;
+                if (value < 5) {
+                    return;
+                }
+                devFormatoMoneda(key, value)
+                    .then((response) => {
+                        let monto_calculado = response.data;
+                        $("[name='monto_recibir_d_form1']").val(
+                            monto_calculado["monto_a_recibir"]
+                        );
+                        $("[name='monto_pagar_d_form1']").val(
+                            monto_calculado["monto_a_pagar"]
+                        );
+                    })
+                    .catch((error) => {
+                        handleErrors(error);
+                    });
+            },
+        },
+        [
+            {
+                type: "required",
+                message: "Este campo es obligatorio",
+            },
+            {
+                type: "custom",
+                validationCallback: function (options) {
+                    const value = options.value;
+                    if (value < 5) {
+                        return false;
+                    }
+                    return true;
+                },
+                message: "El valor debe ser igual o mayor que 5",
+            },
+        ]
+    );
+
+    setTextBox("#monto_pagar_d_form1", {
+        name: "monto_pagar_d_form1",
+        readOnly: true,
+    });
+
+    setTextBox("#monto_recibir_d_form1", {
+        name: "monto_recibir_d_form1",
+        readOnly: true,
+    });
+
+    setFileUploader(
+        "#file_b_form1",
+        {
+            width: "100%",
+            labelText:
+                "Arrastra un archivo aquí o haz clic para seleccionar uno",
+            selectButtonText: "Seleccionar archivo",
+            accept: "*/*",
+            uploadMode: "useForm",
+            name: "file_b_form1",
+        },
+        [
+            {
+                type: "required",
+                message: "Se necesita el comprobante para continuar",
+            },
+        ]
+    );
+
+    setCheckBox("#check_terminos", {
+        text: "Al enviar este formulario, usted está aceptando nuestros",
+        value: false,
+        onValueChanged: function (e) {
+            isTerminosForm1 = e.value;
+        },
+        onContentReady: function (e) {
+            var $textContainer = $("<div style='line-height: 1.5'>")
+                .addClass("custom-checkbox-text")
+                .appendTo(e.element);
+
+            $("<a>")
+                .attr("href", "../sites/politicas")
+                .attr("target", "_blank")
+                .text("Terminos y Condiciones")
+                .appendTo($textContainer);
+
+            $("<span>").text(" y otros textos aquí.").appendTo($textContainer);
+        },
+    });
+
+    setButton(gridSpaces.querySelector("button"), {
+        elementAttr: {
+            class: "boton-primary",
+        },
+        useSubmitBehavior: true,
+    });
+}

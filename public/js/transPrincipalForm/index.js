@@ -426,6 +426,8 @@ function capTypePay(key) {
         [newHtml, tempcHtml, infoHtml] = getBitcoinContent(key);
     } else if (key == "Tehther") {
         [newHtml, tempcHtml, infoHtml] = getTehtherContent(key);
+    } else if(key == "Zinli"){
+        [newHtml, tempcHtml, infoHtml] = getZinliContent(key);
     }
 
     cHtml = cHtml + tempcHtml;
@@ -446,6 +448,8 @@ function capTypePay(key) {
         getBitcoinButtons(3, gridSpaces);
     } else if (key == "Tehther") {
         getTehtherButtons(4, gridSpaces);
+    } else if (key == "Zinli") {
+        getZinliButtons(3, gridSpaces);
     }
 
     $("#payments-view").show();

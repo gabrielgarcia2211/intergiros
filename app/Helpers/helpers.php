@@ -120,6 +120,10 @@ function mapTasaPay($tasa)
             $listTipo = TasaCambio::find(7);
             return [$listTipo['id_tipo_formulario'], $listTipo['key']];
             break;
+        case 'Zinli':
+            $listTipo = TasaCambio::find(8);
+            return [$listTipo['id_tipo_formulario'], $listTipo['key']];
+            break;
         default:
             break;
     }

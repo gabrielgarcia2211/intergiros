@@ -19,6 +19,7 @@ class TipoFormularioSeeder extends Seeder
             'Formulario de Peru Sol',
             'Formulario de Peru Dolar',
             'Formulario de Colombia Bolivar',
+            'Formulario de Zinli',
         ];
 
         foreach ($tiposFormulario as $index => $descripcion) {
