@@ -33,7 +33,7 @@
                         <span class="fa fa-angle-down"></span>
                     </p>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ route('site.camPayPeru') }}"> Cambiar Paypal en Perú</a>
+                        <a class="dropdown-item" href="{{-- {{ route('site.camPayPeru') }} --}}"> Cambiar Paypal en Perú</a>
                         <br />
                         <a class="dropdown-item" href="{{ route('site.bolivaresPeruVen') }}">
                             Enviar Bolivares de Perú a Venezuela</a>

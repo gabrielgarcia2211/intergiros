@@ -24,10 +24,11 @@
         <br> <br>
         <center>
             <h1>TASA DEL BOLÍVAR EN COLOMBIA</h1>
-            <h3>{{ \Carbon\Carbon::now()->format('jS F Y') }}</h3>
+            <h3>{{ \Carbon\Carbon::now()->translatedFormat('jS F Y') }}</h3>
             <h1>´´´´´´´´´´´´´´´´´´´´´´´´</h1>
-            <h1>Tasa</h1>
-            <h2>10.000 = 0 BS </h2>
+            <h3>TASA COLOMBIA</h3>
+            <h2>{{ '$10.000 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', '7')->first())->valor ?? 'N/A') . ' Bs' }}
+            </h2>
             </h2>
         </center>
     </div>
@@ -171,7 +172,8 @@
                                                     MONTO A CAMBIAR $:
                                                 </h4>
                                                 <div id="monto_enviar_d_transColForm"></div>
-                                                <p style="text-align: left; display: inline-block; margin-top: 10px">Conversión a
+                                                <p style="text-align: left; display: inline-block; margin-top: 10px">
+                                                    Conversión a
                                                     Bolívares:</p>
                                                 <p style="text-align: left; display: inline-block;"
                                                     id="conversion_transColForm"><b>$</b>00</p>
@@ -188,15 +190,17 @@
                                             </div>
                                         </div>
                                         <br>
-                                        <div class="row" style="display: flex; justify-content: center; align-items: center; text-align:center">
+                                        <div class="row"
+                                            style="display: flex; justify-content: center; align-items: center; text-align:center">
                                             <div id="check_terminos"></div>
                                         </div>
                                         <br>
-                                        <div class="row" style="display: flex; justify-content: center; align-items: center; text-align:center; margin-top:20px">
+                                        <div class="row"
+                                            style="display: flex; justify-content: center; align-items: center; text-align:center; margin-top:20px">
                                             <div class="col-md-12">
                                                 <div id="btn_send_transColForm"></div>
                                             </div>
-                                        </div> 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -206,13 +210,13 @@
             </div>
         </div>
     </div>
-   
+
 
     <!-- FOOTER SECTION -->
     <div id="form_footer">
         @include('dash.footer')
     </div>
-    
+
     <!-- Back top -->
     <a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
 @endsection

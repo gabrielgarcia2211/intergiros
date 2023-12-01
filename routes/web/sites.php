@@ -14,7 +14,7 @@ Route::get('/registro', [SitesController::class, 'registro'])->name('registro');
 Route::group(['prefix' => 'sites', 'middleware' => 'auth'], function () {
     Route::get('/welcome', [SitesController::class, 'index'])->name('site.welcome');
     Route::get('/bolivaresPeruVen', [SitesController::class, 'index_bolivares_peru_ven'])->name('site.bolivaresPeruVen');
-    Route::get('/camPayPeru', [SitesController::class, 'index_cam_pay_peru'])->name('site.camPayPeru');
+    //Route::get('/camPayPeru', [SitesController::class, 'index_cam_pay_peru'])->name('site.camPayPeru');
     Route::get('/verificarPaypal', [SitesController::class, 'index_verificar_paypal'])->name('site.verificarPaypal');
     Route::get('/otrosServicios', [SitesController::class, 'index_otros_servicios'])->name('site.otrosServicios');
     Route::get('/bolivaresColVen', [SitesController::class, 'index_bolivares_col_ven'])->name('site.bolivaresColVen');

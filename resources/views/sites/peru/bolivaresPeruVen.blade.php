@@ -23,10 +23,13 @@
         <br> <br>
         <center>
             <h1>TASA DEL BOLÍVAR EN PERÚ</h1>
-            <h2>{{ \Carbon\Carbon::now()->format('jS F Y') }}</h2>
+            <h2>{{ \Carbon\Carbon::now()->translatedFormat('jS F Y'); }}</h2>
             <h1>´´´´´´´´´´´´´´´´´´´´´´´´</h1>
-            <h2>{{ '1 Sol = Bs' }}
-                <h2>{{ '1 Dólar = Bs' }}
+            <h3>TASA PERU</h3>
+            <h2>{{ 'SOL $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', '5')->first())->valor ?? 'N/A') . ' Bs' }}
+            </h2>
+            <h2>{{ 'US $1.00 = ' . (optional(App\Models\Tipos\TasaCambio::where('key', '6')->first())->valor ?? 'N/A') . ' Bs' }}
+            </h2>
         </center>
     </div>
     <center>
@@ -171,7 +174,7 @@
                                                         <h6 class="d-inline-block">Monto BS:</h6>
                                                         <p class="d-inline-block" id="valor_b_transPeruForm"></p>
                                                     </div>
-                                                </div>                                                
+                                                </div>
                                             </div>
                                         </div>
                                         <br>
@@ -200,7 +203,7 @@
                                         <br>
                                         <hr>
                                         <div class="row">
-                                            <h4 class="sub-descripction">DATOS DEL DEPOSITANTE:  
+                                            <h4 class="sub-descripction">DATOS DEL DEPOSITANTE:
                                                 <div id="check-cliente"></div>
                                             </h4>
                                             <div class="col-sm-4">
@@ -241,15 +244,17 @@
                                             </div>
                                         </div>
                                         <br>
-                                        <div class="row" style="display: flex; justify-content: center; align-items: center; text-align:center">
+                                        <div class="row"
+                                            style="display: flex; justify-content: center; align-items: center; text-align:center">
                                             <div id="check_terminos"></div>
                                         </div>
                                         <br>
-                                        <div class="row" style="display: flex; justify-content: center; align-items: center; text-align:center; margin-top:20px">
+                                        <div class="row"
+                                            style="display: flex; justify-content: center; align-items: center; text-align:center; margin-top:20px">
                                             <div class="col-md-12">
                                                 <div id="btn_send_transPeruForm"></div>
                                             </div>
-                                        </div>                                        
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -265,7 +270,7 @@
     <div id="form_footer">
         @include('dash.footer')
     </div>
-    
+
 
     <!-- Back top -->
     <a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>

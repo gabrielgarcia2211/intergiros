@@ -473,9 +473,24 @@ $(document).ready(function () {
 });
 
 function generateCsv() {
+    // Muestra el modal de carga
+    const loading = DevExpress.ui.notify({
+        message: 'Cargando...',
+        width: 200,
+        shading: true,
+        position: { at: 'top center', my: 'center top' },
+        displayTime: 0, // Para que la notificación no se cierre automáticamente
+        closeOnClick: false,
+    }, 'info', 'top-center');
+
     axios
         .get("/formulario/report", { responseType: "blob" })
         .then(function (response) {
+            // Cierra la notificación de carga después de completar la descarga
+            if (loading && loading.hide) {
+                loading.hide();
+            }
+
             const blob = new Blob([response.data], {
                 type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             });
@@ -494,6 +509,19 @@ function generateCsv() {
             window.URL.revokeObjectURL(url);
         })
         .catch(function (error) {
-            handleErrors(error);
+            // Maneja los errores y muestra una notificación de DevExpress
+            if (loading && loading.hide) {
+                loading.hide();
+            }
+            DevExpress.ui.notify({
+                message: 'Hubo un problema al generar el archivo CSV.',
+                position: { at: 'top center', my: 'center top' },
+                width: 300,
+                shading: true,
+                closeOnOutsideClick: true,
+                type: 'error',
+                displayTime: 5000, // Duración en milisegundos antes de cerrar automáticamente
+            });
+            console.error(error);
         });
 }
