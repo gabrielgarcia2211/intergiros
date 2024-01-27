@@ -26,7 +26,7 @@ a:hover, a:focus {
 }
 
 .containt-formu{
-  background: #f7f7f7;
+  background: #f7f7f7d2;
   padding: 30px;
   margin-top: 20px;
   margin-left: 20px;
@@ -61,7 +61,7 @@ a:hover, a:focus {
 
 
 .containt-formu  .info-text{
-  text-align: left !important;
+  text-align: center !important;
   font-family: Roboto,Noto Sans,Arial,sans-serif  !important;
   font-weight: 400 !important;
   font-size: 18px !important;
@@ -70,14 +70,15 @@ a:hover, a:focus {
 
 }
 
-.containt-formu  .info-text p{
+.containt-formu .info-text p{
   margin-left: 30px;
-  font-size: 10px;
-  display: inline-block;
-  padding: 2px 2px 4px 4px !important;
+  font-size: 20px;
+  padding: 4px 4px 8px84px !important;
   color: white;
   border-radius: 2px;
-  background: #595d84;
+  background: #341989;
+  padding: 10px;
+  margin-top: 20px;
 }
 
 .containt-formu  .info-text .warning{
@@ -345,8 +346,8 @@ h1 .subtitle {
 .wizard-card {
   min-height: 410px;
   background-color: #FFFFFF;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 1px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 1px 1px rgba(10, 0, 0, 0.966);
+  border-radius: 15px;
   padding: 10px 0;
 }
 .wizard-card .picture-container {

@@ -3,7 +3,7 @@
         <div class="col">
             <!--  Wizard container  -->
             <div class="container" style="padding-right: 0px;">
-                <div class="card-wiz wizard-card" data-color="azzure" id="wizard">
+                <div class="card-wiz wizard-card" data-color="blue" id="wizard">
 
                     <div class="wizard-navigation">
                         <ul>
@@ -11,7 +11,7 @@
                                 <a href="#pedidos" data-toggle="tab">Pedidos Bolivares</a><i
                                     class="icon fa-sharp fa-solid fa-money-bill"></i>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="#recarga_off" data-toggle="tab_off">Recarga de Saldo Paypal</a><i
                                     class="icon fa-brands fa-paypal"></i>
                             </li>
@@ -22,7 +22,7 @@
                             <li>
                                 <a href="#recarga_bolivares_off" data-toggle="tab_off">Compramos tus Bolivares</a><i
                                     class="icon fa-sharp fa-solid fa-money-bill"></i>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <div class="tab-content">
@@ -45,36 +45,42 @@
                                 <div class="containt-formu">
                                     <h4 class="info-text">
                                         FORMULARIO DE PEDIDO DE BOLÍVARES
-                                        <p style="margin: 0;">
+                                        <p>
                                             Ingrese cuidadosamente sus datos para realizar su
                                             pedido de bolívares.
                                         </p>
                                     </h4>
                                     <div class="row">
                                         <h4 class="sub-descripction">
-                                            DATOS DEL BENEFICIARIO: 
+                                            DATOS DEL BENEFICIARIO:
+                                        </h4>
+                                        <div style="float: right; margin-right:20px; margin-bottom:20px">
                                             <div id="add-beneficiario"></div>
                                             <div id="list-beneficiario"></div>
                                             <div id="revert-beneficiario"></div>
-                                        </h4>
-                                        <div class="col-sm-6">
+                                        </div>
+                                        <div class="col-sm-12">
                                             <div class="form-group">
                                                 <div id="nombre_b_form1"></div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
                                             <div class="form-group">
                                                 <div id="cedula_b_form1"></div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-12">
                                             <div class="form-group">
                                                 <div id="banco_b_form1"></div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
                                             <div class="form-group">
                                                 <div id="nro_cuenta_form1"></div>
                                             </div>
@@ -86,6 +92,7 @@
                                     <div class="container" style="width: 100%; margin-top:20px">
                                         <div id="radio_type_form1"></div>
                                     </div>
+                                    <hr>
                                     <div class="row">
                                         <div class="col-sm-10">
                                             <p class="descripcion-formu">
@@ -107,38 +114,53 @@
                                             <div id="movil_b_form1"></div>
                                         </div>
                                     </div>
+                                    <hr>
                                     <div class="row">
-                                        <h4 class="sub-descripction">DATOS DEL DEPOSITANTE:  
-                                            <div id="check-cliente"></div>
+                                        <h4 class="sub-descripction">
+                                            DATOS DEL DEPOSITANTE:
                                         </h4>
-                                        <div class="col-sm-4">
-                                            <div id="nombre_d_form1"></div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div id="telefono_d_form1"></div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div id="correo_d_form1"></div>
+                                        <div style="float: right; margin-right:20px; margin-bottom:20px">
+                                            <div id="check-cliente"></div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
                                             <div class="form-group">
-                                                <div id="pais_d_form1"></div>
+                                                <div id="nombre_d_form1"></div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div id="telefono_d_form1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
                                             <div class="form-group">
                                                 <div id="identificacion_d_form1"></div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div id="correo_d_form1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div id="pais_d_form1"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
                                             <div id="pais_d_form1"></div>
                                             <div class="form-group">
                                                 <div id="instagram_d_form1"></div>
                                             </div>
                                         </div>
                                     </div>
+                                    <hr>
                                     <div class="row">
                                         <h4 class="sub-descripction">DATOS DE ENVIÓ:</h4>
                                         <div class="col-sm-4 float-left">

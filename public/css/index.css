@@ -29,10 +29,28 @@
 }
 
 .boton-status {
-    background-color: #f35454 !important;
-    color: white !important;
-    padding: 2px !important;
-    width: 30% !important;
+    min-width: 130px;
+    height: 50px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+        7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    background: #4433ff;
+}
+
+.boton-status:hover {
+    background-color: #3a86ff;
+}
+.boton-status:active {
+    top: 2px;
 }
 
 .boton-status-icons {
@@ -47,12 +65,12 @@
 }
 
 .boton-status-icons .dx-icon {
-    color: white !important; 
-    font-size: 16px !important; 
+    color: white !important;
+    font-size: 16px !important;
 }
 
 .icon-custom-add {
-    background-color: #55c5f1;
+    background-color: rgba(35, 124, 35, 0.664);
 }
 
 .icon-custom-add,
@@ -61,7 +79,7 @@
 }
 
 .icon-custom-list {
-    background-color: #1fc749;
+    background-color: rgb(75, 132, 218);
 }
 
 .icon-custom-list,
@@ -70,7 +88,7 @@
 }
 
 .icon-custom-revert {
-    background-color: #f1ef55;
+    background-color: rgba(255, 0, 0, 0.733);
 }
 
 .icon-custom-revert,

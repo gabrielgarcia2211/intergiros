@@ -23,12 +23,12 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item">
                     <p href="#" class="smoothScroll"
-                        style="cursor: pointer; color: #67c6dc; padding: 15px; margin: 0px;" id="inicio">INICIO</p>
+                        style="cursor: pointer; color: #ffffff; padding: 15px; margin: 0px;" id="inicio">INICIO</p>
                 </li>
                 <li class="nav-item">
                     <p class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"
-                        style="cursor: pointer; color: #67c6dc; padding: 15px; margin: 0px;" id="menus">
+                        style="cursor: pointer; color: #ffffff; padding: 15px; margin: 0px;" id="menus">
                         PERÚ
                         <span class="fa fa-angle-down"></span>
                     </p>
@@ -41,7 +41,7 @@
                 </li>
                 <li class="nav-item">
                     <p class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" style="cursor: pointer; color: #67c6dc; padding: 15px; margin: 0px;"
+                        aria-expanded="false" style="cursor: pointer; color: #ffffff; padding: 15px; margin: 0px;"
                         id="menus">
                         ECUADOR
                         <span class="fa fa-angle-down"></span>
@@ -55,7 +55,7 @@
                 </li>
                 <li class="nav-item">
                     <p class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" style="cursor: pointer; color: #67c6dc; padding: 15px; margin: 0px;"
+                        aria-expanded="false" style="cursor: pointer; color: #ffffff; padding: 15px; margin: 0px;"
                         id="menus">
                         COLOMBIA
                         <span class="fa fa-angle-down"></span>
@@ -67,12 +67,12 @@
                 </li>
                 <li>
                     <p href="#" class="smoothScroll"
-                        style="cursor: pointer; color: #67c6dc; padding: 15px; margin: 0px;" id="otros_servicios">OTROS
+                        style="cursor: pointer; color: #ffffff; padding: 15px; margin: 0px;" id="otros_servicios">OTROS
                         SERVICIOS</p>
                 </li>
                 <li>
                     <p href="#" class="smoothScroll"
-                        style="cursor: pointer; color: #67c6dc; padding: 15px; margin: 0px;" id="contacto">CONTACTO</p>
+                        style="cursor: pointer; color: #ffffff; padding: 15px; margin: 0px;" id="contacto">CONTACTO</p>
                 </li>
                 <li>
                     <p class="smoothScroll" style="cursor: pointer; color: #e66858; padding: 15px; margin: 0px;"
