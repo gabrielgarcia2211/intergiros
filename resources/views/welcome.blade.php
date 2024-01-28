@@ -6,7 +6,6 @@
     </div>
 
     @include('dash.nav')
-
     <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="30000" id="bs-carousel">
         <!-- Overlay -->
         <div class="overlay"></div>
@@ -21,7 +20,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item slides active">
-                <div class="slide-1"></div>
+                <img src="{{ asset('template/images/slider/img_6.jpg') }}" class="img-responsive" alt="" style="width: 100%;">
                 <div class="hero">
                     <hgroup></hgroup>
                 </div>
@@ -106,7 +105,6 @@
             </div>
         </div>
     </div>
-
     <section id="overview" class="parallax-section">
         <div class="container">
             <center>

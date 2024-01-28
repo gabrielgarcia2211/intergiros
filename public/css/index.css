@@ -116,3 +116,27 @@
 .buttons-container > div {
     width: 120px !important;
 }
+
+@media only screen and (max-width: 1200px) {
+    #bs-carousel {
+        padding-top: 80px !important;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #bs-carousel {
+        padding-top: 149px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #bs-carousel {
+        padding-top: 70px !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #bs-carousel {
+        padding-top: 90px !important;
+    }
+}
