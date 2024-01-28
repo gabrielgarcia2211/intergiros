@@ -25,7 +25,9 @@
                     <hgroup></hgroup>
                 </div>
             </div>
-            <div class="item slides">
+        </div>
+    </div>
+    <div class="item slides">
                 <div class="slide-6"></div>
                 <div class="hero">
                     <hgroup></hgroup>
@@ -103,8 +105,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
     <section id="overview" class="parallax-section">
         <div class="container">
             <center>
