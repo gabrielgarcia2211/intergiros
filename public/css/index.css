@@ -133,14 +133,29 @@
     #bs-carousel {
         padding-top: 70px !important;
     }
+    .divfalso {
+        display: block;
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .divfalso {
+        display: block;
+        height: 150px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
     #bs-carousel {
         padding-top: 90px !important;
     }
+    .divfalso {
+        height: 80px;
+    }
 }
 
 .custom-tasas {
     margin-top: 0% !important;
 }
+
