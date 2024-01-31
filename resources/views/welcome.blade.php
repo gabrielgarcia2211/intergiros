@@ -18,7 +18,7 @@
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner">
+        <div class="carousel-inner" style="height: 950px !important;">
             <div class="item slides active">
                 <img src="{{ asset('template/images/slider/img_6.jpg') }}" class="img-responsive" alt="" style="width: 100%;">
                 <div class="hero">

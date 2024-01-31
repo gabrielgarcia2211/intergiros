@@ -117,9 +117,14 @@
     width: 120px !important;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (min-width: 1200px) {
     #bs-carousel {
         padding-top: 80px !important;
+        height: 1050px;
+    }
+
+    #img-carousel {
+        height: 950px !important;
     }
 }
 
@@ -129,26 +134,31 @@
     }
 }
 
-@media only screen and (max-width: 767px) {
-    #bs-carousel {
-        padding-top: 70px !important;
-    }
-    .divfalso {
-        display: block;
-        height: 150px;
-    }
-}
-
 @media only screen and (max-width: 800px) {
     .divfalso {
         display: block;
         height: 150px;
     }
+    #bs-carousel {
+        height: 490px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #bs-carousel {
+        padding-top: 70px !important;
+        height: 380px !important;
+    }
+    .divfalso {
+        display: block;
+        height: 90px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
     #bs-carousel {
-        padding-top: 90px !important;
+        padding-top: 70px !important;
+        height: 320px !important;
     }
     .divfalso {
         height: 80px;
@@ -157,5 +167,24 @@
 
 .custom-tasas {
     margin-top: 0% !important;
+}
+
+@media only screen and (max-width: 500px) {
+    #bs-carousel {
+        padding-top: 90px !important;
+        height: 300px !important;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #bs-carousel {
+        height: 230px !important;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    #bs-carousel {
+        height: 210px !important;
+    }
 }
 
