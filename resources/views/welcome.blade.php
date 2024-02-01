@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="divfalso" style="" hidden>
+    <div class="divfalso" hidden>
 
     </div>
     <div class="item slides">

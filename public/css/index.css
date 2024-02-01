@@ -128,16 +128,24 @@
     }
 }
 
+@media only screen and (max-width: 1000px) {
+    #bs-carousel {
+        padding-top: 90px !important;
+        height: 630px;
+    }
+}
+
 @media only screen and (max-width: 992px) {
     #bs-carousel {
         padding-top: 149px !important;
+        height: 630px;
     }
 }
 
 @media only screen and (max-width: 800px) {
     .divfalso {
         display: block;
-        height: 150px;
+        height: 100px;
     }
     #bs-carousel {
         height: 490px !important;
